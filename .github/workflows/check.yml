@@ -1,0 +1,23 @@
+name: Build Roblox place
+on:
+  push:
+    branches: [main]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned official build tools
+        run: python scripts/bootstrap.py
+      - name: Validate and build
+        run: python scripts/check.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: EspressoCafeTycoon
+          path: build/EspressoCafeTycoon.rbxlx

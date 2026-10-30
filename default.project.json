@@ -1,0 +1,39 @@
+{
+  "name": "EspressoCafeTycoon",
+  "tree": {
+    "$className": "DataModel",
+    "AssetService": {
+      "$className": "AssetService",
+      "$properties": { "AllowInsertFreeAssets": true }
+    },
+    "ReplicatedStorage": {
+      "$className": "ReplicatedStorage",
+      "Shared": { "$path": "src/shared" }
+    },
+    "ServerScriptService": {
+      "$className": "ServerScriptService",
+      "Server": { "$path": "src/server" }
+    },
+    "StarterPlayer": {
+      "$className": "StarterPlayer",
+      "$properties": { "CameraMaxZoomDistance": 90, "CameraMinZoomDistance": 8 },
+      "StarterPlayerScripts": {
+        "$className": "StarterPlayerScripts",
+        "Client": { "$path": "src/client" }
+      }
+    },
+    "Workspace": {
+      "$className": "Workspace",
+      "$properties": { "Gravity": 196.2, "StreamingEnabled": false },
+      "SpawnLocation": {
+        "$className": "SpawnLocation",
+        "$properties": { "Anchored": true, "Position": [0, 2, 0], "Size": [8, 1, 8], "Neutral": true, "Transparency": 1, "Duration": 0 }
+      }
+    },
+    "Lighting": {
+      "$className": "Lighting",
+      "$properties": { "Brightness": 2, "ClockTime": 15.5, "Ambient": [0.48, 0.43, 0.36], "OutdoorAmbient": [0.64, 0.64, 0.61], "GlobalShadows": true }
+    },
+    "SoundService": { "$className": "SoundService", "$properties": { "RespectFilteringEnabled": true } }
+  }
+}

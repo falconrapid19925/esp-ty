@@ -1,0 +1,435 @@
+{
+  "downloaded_at": "2026-10-30T22:52:21.066392+00:00",
+  "packs": [
+    {
+      "pack": "furniture-kit",
+      "creator": "Kenney",
+      "source": "https://kenney.nl/assets/furniture-kit",
+      "license": "CC0-1.0",
+      "selected_models": [
+        "kitchenCoffeeMachine",
+        "kitchenBar",
+        "kitchenBarEnd",
+        "chair",
+        "chairModernCushion",
+        "tableRound",
+        "pottedPlant",
+        "lampSquareCeiling"
+      ]
+    },
+    {
+      "pack": "food-kit",
+      "creator": "Kenney",
+      "source": "https://kenney.nl/assets/food-kit",
+      "license": "CC0-1.0",
+      "selected_models": [
+        "cup-coffee",
+        "croissant",
+        "donut-chocolate",
+        "muffin",
+        "cookie-chocolate"
+      ]
+    },
+    {
+      "pack": "interface-sounds",
+      "creator": "Kenney",
+      "source": "https://kenney.nl/assets/interface-sounds",
+      "license": "CC0-1.0",
+      "selected_audio": [
+        "error_001.ogg",
+        "close_001.ogg",
+        "select_001.ogg",
+        "open_001.ogg",
+        "confirmation_001.ogg",
+        "click_001.ogg"
+      ]
+    }
+  ],
+  "files": [
+    {
+      "file": "kenney-food-kit/FBX format/Textures/colormap.png",
+      "bytes": 10715,
+      "sha256": "75baf74d9483a0fc56ac21ceba346fbe16fc24a2a1bf0524c53e6bbe802e1153"
+    },
+    {
+      "file": "kenney-food-kit/FBX format/cookie-chocolate.fbx",
+      "bytes": 29424,
+      "sha256": "d96957e3e1216d757abfe593f4953a3d0c6e9e0a58d495b481cbc4183f60b9fb"
+    },
+    {
+      "file": "kenney-food-kit/FBX format/croissant.fbx",
+      "bytes": 32240,
+      "sha256": "c1fa8554bb495e6b5cfe30a648ba32d6f1e3c3680447c293a8692818f7b40c30"
+    },
+    {
+      "file": "kenney-food-kit/FBX format/cup-coffee.fbx",
+      "bytes": 26464,
+      "sha256": "6f8cdf04418d8641e79a1490922d4b9f4e9fd8f4c156f30d43e2a8835e1d1712"
+    },
+    {
+      "file": "kenney-food-kit/FBX format/donut-chocolate.fbx",
+      "bytes": 30352,
+      "sha256": "964dda41a89a76fe70b6a428d641cf3fbf601b8b1670220703639c21dfadfc44"
+    },
+    {
+      "file": "kenney-food-kit/FBX format/muffin.fbx",
+      "bytes": 29552,
+      "sha256": "a2891d94afa5c434da81ed5f598da42b0548d99384b2f6670739e06875edee0b"
+    },
+    {
+      "file": "kenney-food-kit/GLB format/Textures/colormap.png",
+      "bytes": 10715,
+      "sha256": "75baf74d9483a0fc56ac21ceba346fbe16fc24a2a1bf0524c53e6bbe802e1153"
+    },
+    {
+      "file": "kenney-food-kit/GLB format/cookie-chocolate.glb",
+      "bytes": 12344,
+      "sha256": "bf7894020a6d0d0acd120a69d96a9088b226f5d557b7d7a3441e9fc8169d2fe6"
+    },
+    {
+      "file": "kenney-food-kit/GLB format/croissant.glb",
+      "bytes": 14352,
+      "sha256": "f2f8ee64d7850b262a6af2492cd042fa8eb6506cde49d439360ad1a3df48fe9e"
+    },
+    {
+      "file": "kenney-food-kit/GLB format/cup-coffee.glb",
+      "bytes": 7872,
+      "sha256": "d74652ad1821bc5dedf1b2e1deb4e0ca0c498aa73880e7df5b91e5e729af6f81"
+    },
+    {
+      "file": "kenney-food-kit/GLB format/donut-chocolate.glb",
+      "bytes": 12568,
+      "sha256": "857b6c73117598668db118378f6c801df9bb378af7292ff0b2ba919a4faa396c"
+    },
+    {
+      "file": "kenney-food-kit/GLB format/muffin.glb",
+      "bytes": 10252,
+      "sha256": "396184e9d82e79582858569d68ba5d05640838bc514e952556b9ee044a0e7f87"
+    },
+    {
+      "file": "kenney-food-kit/License.txt",
+      "bytes": 711,
+      "sha256": "32a081c2035dd4db47d850c83244da048165f0e53d71c076b76c1afc0590bc7f"
+    },
+    {
+      "file": "kenney-food-kit/OBJ format/Textures/colormap.png",
+      "bytes": 10715,
+      "sha256": "75baf74d9483a0fc56ac21ceba346fbe16fc24a2a1bf0524c53e6bbe802e1153"
+    },
+    {
+      "file": "kenney-food-kit/OBJ format/cookie-chocolate.mtl",
+      "bytes": 98,
+      "sha256": "45a6736aa344a0c7e286b9c43c6a48f25b6a2f78d8c5949e430c3b4a93b4e060"
+    },
+    {
+      "file": "kenney-food-kit/OBJ format/cookie-chocolate.obj",
+      "bytes": 11512,
+      "sha256": "6ffdf84e5fd0540f791a8bd63817cee8ceabb288067a3d46625048d3c48cf484"
+    },
+    {
+      "file": "kenney-food-kit/OBJ format/croissant.mtl",
+      "bytes": 98,
+      "sha256": "45a6736aa344a0c7e286b9c43c6a48f25b6a2f78d8c5949e430c3b4a93b4e060"
+    },
+    {
+      "file": "kenney-food-kit/OBJ format/croissant.obj",
+      "bytes": 15299,
+      "sha256": "1dda97b67e806d5ed99afec55d730a0d2050115cec9d7a2dd06d093691fd620a"
+    },
+    {
+      "file": "kenney-food-kit/OBJ format/cup-coffee.mtl",
+      "bytes": 98,
+      "sha256": "45a6736aa344a0c7e286b9c43c6a48f25b6a2f78d8c5949e430c3b4a93b4e060"
+    },
+    {
+      "file": "kenney-food-kit/OBJ format/cup-coffee.obj",
+      "bytes": 9537,
+      "sha256": "b57a9fbb985301504945f9f9f2c20ae17989f5a2422919239ead75a34d86b010"
+    },
+    {
+      "file": "kenney-food-kit/OBJ format/donut-chocolate.mtl",
+      "bytes": 98,
+      "sha256": "45a6736aa344a0c7e286b9c43c6a48f25b6a2f78d8c5949e430c3b4a93b4e060"
+    },
+    {
+      "file": "kenney-food-kit/OBJ format/donut-chocolate.obj",
+      "bytes": 11680,
+      "sha256": "8bd3b60a2a230c7fee685bd155d5c08721d333a1f2d28e6d2f394500794876bb"
+    },
+    {
+      "file": "kenney-food-kit/OBJ format/muffin.mtl",
+      "bytes": 98,
+      "sha256": "45a6736aa344a0c7e286b9c43c6a48f25b6a2f78d8c5949e430c3b4a93b4e060"
+    },
+    {
+      "file": "kenney-food-kit/OBJ format/muffin.obj",
+      "bytes": 7706,
+      "sha256": "2a07b5306c5428fc057e08d4db820e96efa59ec658f02134e4c7f57cf2e962bb"
+    },
+    {
+      "file": "kenney-food-kit/Previews/cookie-chocolate.png",
+      "bytes": 2106,
+      "sha256": "5c142f85a2b220228ea948aa698fc3569aad122e55127cdb833ccb0be708fdc4"
+    },
+    {
+      "file": "kenney-food-kit/Previews/croissant.png",
+      "bytes": 1927,
+      "sha256": "03063d813d8574a55560439654726d8cb6a318b85b5428eff28f8fc086f77f1b"
+    },
+    {
+      "file": "kenney-food-kit/Previews/cup-coffee.png",
+      "bytes": 2100,
+      "sha256": "1d0f365e5af15573d5285476861297a9bdfa830f7027ca052b416e9042332595"
+    },
+    {
+      "file": "kenney-food-kit/Previews/donut-chocolate.png",
+      "bytes": 2258,
+      "sha256": "3f569a32e2ed1be3fc72bc554b23c71e855675f0d0791290284ddfc2d37eea07"
+    },
+    {
+      "file": "kenney-food-kit/Previews/muffin.png",
+      "bytes": 1946,
+      "sha256": "7d425b12ad118a10c6c99d022a641629aefd20bbeed7c94dcab25063f6050129"
+    },
+    {
+      "file": "kenney-furniture-kit/FBX format/chair.fbx",
+      "bytes": 25130,
+      "sha256": "e7b7be9a7f4220db05a1bddd0cfa595e1d816e7446545223b3b04f6cdc566ca5"
+    },
+    {
+      "file": "kenney-furniture-kit/FBX format/chairModernCushion.fbx",
+      "bytes": 19354,
+      "sha256": "7b698f6c6eb5e7591ce92be2a52803e4bd8e05316e0973772cbc3afe9a61aeb0"
+    },
+    {
+      "file": "kenney-furniture-kit/FBX format/kitchenBar.fbx",
+      "bytes": 17595,
+      "sha256": "a3f2c36b74c0856ee9e2d2554deb7d1cbf72a6804a139a7f30a2cae61badea39"
+    },
+    {
+      "file": "kenney-furniture-kit/FBX format/kitchenBarEnd.fbx",
+      "bytes": 30976,
+      "sha256": "cd71e7211e58e909ad65c1750f94b781e8c9f5c86040277f0b766aec3669ae3b"
+    },
+    {
+      "file": "kenney-furniture-kit/FBX format/kitchenCoffeeMachine.fbx",
+      "bytes": 33931,
+      "sha256": "f6646b64f0fb496ad4bdf8846e67efb7bf005628e288cfd790ac779495abf7a1"
+    },
+    {
+      "file": "kenney-furniture-kit/FBX format/lampSquareCeiling.fbx",
+      "bytes": 17440,
+      "sha256": "c2d9c774c4e72943253eb2a206b330643d0e8c0530eb07df2ea6d45a11eec5a4"
+    },
+    {
+      "file": "kenney-furniture-kit/FBX format/pottedPlant.fbx",
+      "bytes": 23744,
+      "sha256": "61e963d81fbf4e0772b5b8d542a44dbb0c794affa9994b6d5715f425d71fc97d"
+    },
+    {
+      "file": "kenney-furniture-kit/FBX format/tableRound.fbx",
+      "bytes": 19706,
+      "sha256": "2e024db523150e4661a58012ca063c22a73724e004d1805ad2ed2fc88cd03563"
+    },
+    {
+      "file": "kenney-furniture-kit/GLTF format/chair.glb",
+      "bytes": 10756,
+      "sha256": "c8a11eec93e89e31250ba91afc1b8d56c3bec7ae86640fd1239f595ff4180883"
+    },
+    {
+      "file": "kenney-furniture-kit/GLTF format/chairModernCushion.glb",
+      "bytes": 7376,
+      "sha256": "245132697e633e907e2b48c86d56f6c8543604a3440a055d1c71c06ce11d2858"
+    },
+    {
+      "file": "kenney-furniture-kit/GLTF format/kitchenBar.glb",
+      "bytes": 6004,
+      "sha256": "792c3d31e60c8a8d8c7a28cf7d1efe004c5a601adc1b163a8799dde32c1b559d"
+    },
+    {
+      "file": "kenney-furniture-kit/GLTF format/kitchenBarEnd.glb",
+      "bytes": 11084,
+      "sha256": "410c6d83defe4ed248a8ec32f81553b56c8b610372d02ecf0e547e3f52cdc0a1"
+    },
+    {
+      "file": "kenney-furniture-kit/GLTF format/kitchenCoffeeMachine.glb",
+      "bytes": 13332,
+      "sha256": "063f582c6fa0f00a9f24e3393dac2295491c4becdaf5513c893ab1a2826b6ec3"
+    },
+    {
+      "file": "kenney-furniture-kit/GLTF format/lampSquareCeiling.glb",
+      "bytes": 5628,
+      "sha256": "57066be51583d83ae60071e8179af275189cb2911ecb9fc24953bb930c8bf118"
+    },
+    {
+      "file": "kenney-furniture-kit/GLTF format/pottedPlant.glb",
+      "bytes": 7576,
+      "sha256": "5b760eda2766f75fda36b2c5df652a1662f82981ef64cd8fa7fe7bcd386b3a15"
+    },
+    {
+      "file": "kenney-furniture-kit/GLTF format/tableRound.glb",
+      "bytes": 6444,
+      "sha256": "f8daea9124a542a00b7bdacfddac82dc468573d43e44d7b54dd6316e9695754b"
+    },
+    {
+      "file": "kenney-furniture-kit/License.txt",
+      "bytes": 614,
+      "sha256": "bc0de1a0742cb490f9ed4bae0bd284286ebb27e23149b9917c7d8c0d590b8b29"
+    },
+    {
+      "file": "kenney-furniture-kit/OBJ format/chair.mtl",
+      "bytes": 147,
+      "sha256": "eb2bffff6262d9b032d9ae1de51467559b6a03da66cd68ac5ecd34ecd004c0c5"
+    },
+    {
+      "file": "kenney-furniture-kit/OBJ format/chair.obj",
+      "bytes": 13851,
+      "sha256": "73b0cc678606b37302bfb66192a007855ce9a7826f8824e04e75f8a413a82f02"
+    },
+    {
+      "file": "kenney-furniture-kit/OBJ format/chairModernCushion.mtl",
+      "bytes": 261,
+      "sha256": "6ab116c9aded577974c639c9f3e6ba020c1f0d840bf6d84afe36e4b1e7451223"
+    },
+    {
+      "file": "kenney-furniture-kit/OBJ format/chairModernCushion.obj",
+      "bytes": 7513,
+      "sha256": "a9ca6764d4c81a98c0baf6840f0db5f2242efde3046e81982edd0e2e78167306"
+    },
+    {
+      "file": "kenney-furniture-kit/OBJ format/kitchenBar.mtl",
+      "bytes": 366,
+      "sha256": "944c5959c0bcbc0fd9e5cebe2b2702b68efd11f2b135a888e5e4284a480364ce"
+    },
+    {
+      "file": "kenney-furniture-kit/OBJ format/kitchenBar.obj",
+      "bytes": 6296,
+      "sha256": "d36463061937173ead16e1c6a73a96fded75e3527e65ec7f8b0473c96e243dee"
+    },
+    {
+      "file": "kenney-furniture-kit/OBJ format/kitchenBarEnd.mtl",
+      "bytes": 257,
+      "sha256": "5e5596841db7ef51c29d073c80e432ccca5240d0fc966255a0cb1fbcec3f6dc0"
+    },
+    {
+      "file": "kenney-furniture-kit/OBJ format/kitchenBarEnd.obj",
+      "bytes": 17342,
+      "sha256": "6403ee5008ead357192fe75764b61b614d770eab50055e086191bf364345f01e"
+    },
+    {
+      "file": "kenney-furniture-kit/OBJ format/kitchenCoffeeMachine.mtl",
+      "bytes": 363,
+      "sha256": "689d5fb8e3445a3e9445cc81ebfc17b6a7292c71193b3a99ba983d654d115c62"
+    },
+    {
+      "file": "kenney-furniture-kit/OBJ format/kitchenCoffeeMachine.obj",
+      "bytes": 16257,
+      "sha256": "f1e2fd0d3e83dde0ad0ad301966d2f9558caace6fdb5dc16667267c45eac0fc6"
+    },
+    {
+      "file": "kenney-furniture-kit/OBJ format/lampSquareCeiling.mtl",
+      "bytes": 249,
+      "sha256": "9b1c81ac53aa626c47641c9e89d632360b5c833c9050b56641388af543d96dbe"
+    },
+    {
+      "file": "kenney-furniture-kit/OBJ format/lampSquareCeiling.obj",
+      "bytes": 5090,
+      "sha256": "fc747d91c565821421b5bc266f3900eee887d88bdf629a3675d003f6c3d753f4"
+    },
+    {
+      "file": "kenney-furniture-kit/OBJ format/pottedPlant.mtl",
+      "bytes": 366,
+      "sha256": "a0b3de40d67b0a085f9fd94d45ae357ba6196f84e48fe08a67fdc43b64319211"
+    },
+    {
+      "file": "kenney-furniture-kit/OBJ format/pottedPlant.obj",
+      "bytes": 6062,
+      "sha256": "839e75290814756dee97e479fa462a7477cecda06db0707a520dc0f29130fc02"
+    },
+    {
+      "file": "kenney-furniture-kit/OBJ format/tableRound.mtl",
+      "bytes": 147,
+      "sha256": "eb2bffff6262d9b032d9ae1de51467559b6a03da66cd68ac5ecd34ecd004c0c5"
+    },
+    {
+      "file": "kenney-furniture-kit/OBJ format/tableRound.obj",
+      "bytes": 8409,
+      "sha256": "86229eabad9489986d6f8a3cec816ac839d402d0e46e6894767d9e03493cb16e"
+    },
+    {
+      "file": "kenney-furniture-kit/Previews/chairModernCushion_SE.png",
+      "bytes": 2240,
+      "sha256": "658748a5cf92ab86d1f434a0f16248bb91d4b41699a9ca6430e91fde2fc128f1"
+    },
+    {
+      "file": "kenney-furniture-kit/Previews/chair_SE.png",
+      "bytes": 2439,
+      "sha256": "93665777f7a85af47e5a7fda9d0b1520997a5e807745f4b706f3a0dc50215ad3"
+    },
+    {
+      "file": "kenney-furniture-kit/Previews/kitchenBarEnd_SE.png",
+      "bytes": 1609,
+      "sha256": "95b76c3a7436543c03e6bb6bd05115a3043af6f39327a6d416ffc0d2728f3f44"
+    },
+    {
+      "file": "kenney-furniture-kit/Previews/kitchenBar_SE.png",
+      "bytes": 2414,
+      "sha256": "1e4d5438994f3573b0884aeaeceb33d52e01434d31f26594edfba3970b0ea96c"
+    },
+    {
+      "file": "kenney-furniture-kit/Previews/kitchenCoffeeMachine_SE.png",
+      "bytes": 1896,
+      "sha256": "d1a59d612f19309649b48ab4105901e811ec09cb976baf2594fee2edfe1e435f"
+    },
+    {
+      "file": "kenney-furniture-kit/Previews/lampSquareCeiling_SE.png",
+      "bytes": 1468,
+      "sha256": "637684937bfe9156807ddb0dd33b18bacb736c60248ab934447ec84e2ea1a1ab"
+    },
+    {
+      "file": "kenney-furniture-kit/Previews/pottedPlant_SE.png",
+      "bytes": 2337,
+      "sha256": "c1ab6b327e39fb4256dda4a4fbfb8e0c6585cdf9f420a74cd8948cd99d528211"
+    },
+    {
+      "file": "kenney-furniture-kit/Previews/tableRound_SE.png",
+      "bytes": 2422,
+      "sha256": "00d211a503067973e2f9493863af9ff8ab03c7a82a3b3d3c4eb147af565acbbe"
+    },
+    {
+      "file": "kenney-interface-sounds/License.txt",
+      "bytes": 574,
+      "sha256": "f7966c773bbed0eca6a9c75081c44a178b38eae112724dbb5fdfbd4192d118a9"
+    },
+    {
+      "file": "kenney-interface-sounds/click_001.ogg",
+      "bytes": 4876,
+      "sha256": "ccfb7fa0cccdd9faec0eb16033c732b1e308d139d80f799161495d58f7adcdb9"
+    },
+    {
+      "file": "kenney-interface-sounds/close_001.ogg",
+      "bytes": 9915,
+      "sha256": "44af8249b933e0fd35ec957a638bb1a0b01f85b53fbe9674bf77bd3ca3168ef4"
+    },
+    {
+      "file": "kenney-interface-sounds/confirmation_001.ogg",
+      "bytes": 8968,
+      "sha256": "063564703b6094d70718a3e787a55cc9141611e4ecd6b6637f8828f79b4a8c3a"
+    },
+    {
+      "file": "kenney-interface-sounds/error_001.ogg",
+      "bytes": 7373,
+      "sha256": "46e67425d16339772e8d328fb36a49426c9467418686e11beeb71ff84b0f6433"
+    },
+    {
+      "file": "kenney-interface-sounds/open_001.ogg",
+      "bytes": 9834,
+      "sha256": "a27c6bb0df7da1e6af5dd5937593c98bc58b6e513f42fe6a3254cd6a6949c648"
+    },
+    {
+      "file": "kenney-interface-sounds/select_001.ogg",
+      "bytes": 5468,
+      "sha256": "aec0c31ea934a35936ae0d2ab8fac8123c93aa5647f935853a58dbaf90278b7a"
+    }
+  ]
+}

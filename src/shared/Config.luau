@@ -1,0 +1,55 @@
+-- Pure configuration; currency is earned in-game. No Robux products are configured.
+local Config = {
+	Version = 1,
+	Title = "Espresso Cafe Tycoon",
+	MaxPlots = 6,
+	StartingCash = 60,
+	SaveInterval = 60,
+	OfflineCapSeconds = 4 * 60 * 60,
+	OfflineRate = 0.12,
+	FranchiseCash = 20000,
+	FranchiseUpgrades = 18,
+	RushInterval = 300,
+	RushDuration = 60,
+	PerfectWindow = 1.4,
+	ServeWindow = 14,
+	Recipes = {
+		{ Id = "espresso", Name = "Espresso", Price = 24, BrewTime = 4, MenuLevel = 0, Color = { 100, 62, 42 } },
+		{ Id = "americano", Name = "Americano", Price = 38, BrewTime = 4.5, MenuLevel = 1, Color = { 128, 84, 51 } },
+		{ Id = "cappuccino", Name = "Cappuccino", Price = 58, BrewTime = 5, MenuLevel = 2, Color = { 209, 174, 130 } },
+		{ Id = "latte", Name = "Cafe Latte", Price = 82, BrewTime = 5.5, MenuLevel = 3, Color = { 232, 207, 164 } },
+		{ Id = "mocha", Name = "Mocha", Price = 110, BrewTime = 6, MenuLevel = 4, Color = { 124, 74, 51 } },
+		{ Id = "cold_brew", Name = "Cold Brew", Price = 145, BrewTime = 6.5, MenuLevel = 5, Color = { 99, 69, 49 } },
+	},
+	Upgrades = {
+		{ Id = "machine", Name = "Espresso machine", Description = "Faster extraction. Each level reduces brew time by 12%.", BaseCost = 65, CostScale = 1.9, MaxLevel = 5 },
+		{ Id = "beans", Name = "Specialty beans", Description = "Better beans earn 18% more per level.", BaseCost = 95, CostScale = 1.95, MaxLevel = 5 },
+		{ Id = "seating", Name = "Cafe seating", Description = "Add tables and speed up your staff's service.", BaseCost = 130, CostScale = 1.9, MaxLevel = 5 },
+		{ Id = "menu", Name = "Recipe notebook", Description = "Unlock the next drink, from Americano to Cold Brew.", BaseCost = 150, CostScale = 1.8, MaxLevel = 5 },
+		{ Id = "staff", Name = "Hire a barista", Description = "Staff serve customers automatically. Extra levels improve speed.", BaseCost = 450, CostScale = 2.3, MaxLevel = 3 },
+		{ Id = "bakery", Name = "Pastry counter", Description = "Add pastries and earn 8% more per level.", BaseCost = 650, CostScale = 2.0, MaxLevel = 3 },
+		{ Id = "decor", Name = "Cafe atmosphere", Description = "Upgrade decor and earn 5% more per level.", BaseCost = 220, CostScale = 1.9, MaxLevel = 4 },
+		{ Id = "expansion", Name = "Cafe expansion", Description = "Open your terrace, then expand the coffee house.", BaseCost = 1800, CostScale = 2.6, MaxLevel = 2 },
+	},
+	Quests = {
+		{ Id = "daily_serve", Name = "Serve 20 customers", Metric = "Served", Target = 20, Reward = 300 },
+		{ Id = "daily_earn", Name = "Earn $1,800 from service", Metric = "Earned", Target = 1800, Reward = 450 },
+		{ Id = "daily_upgrade", Name = "Buy 3 cafe upgrades", Metric = "Upgrades", Target = 3, Reward = 400 },
+	},
+	Achievements = {
+		{ Id = "first_ten", Name = "Your first regulars", Metric = "LifetimeServed", Target = 10, Reward = 150 },
+		{ Id = "hundred", Name = "The neighborhood favorite", Metric = "LifetimeServed", Target = 100, Reward = 1000 },
+		{ Id = "five_hundred", Name = "Coffee destination", Metric = "LifetimeServed", Target = 500, Reward = 4000 },
+		{ Id = "first_five", Name = "A better coffee house", Metric = "TotalUpgrades", Target = 5, Reward = 300 },
+		{ Id = "fifteen", Name = "Built with care", Metric = "TotalUpgrades", Target = 15, Reward = 1500 },
+		{ Id = "perfect_ten", Name = "Dialed in", Metric = "PerfectShots", Target = 10, Reward = 400 },
+		{ Id = "first_franchise", Name = "A new chapter", Metric = "Franchises", Target = 1, Reward = 1500 },
+	},
+	Themes = {
+		{ Id = "sage", Name = "Sage & Cream", RequiredFranchises = 0, Primary = { 101, 127, 106 }, Accent = { 221, 185, 137 } },
+		{ Id = "terracotta", Name = "Terracotta Studio", RequiredFranchises = 1, Primary = { 171, 99, 75 }, Accent = { 237, 198, 148 } },
+		{ Id = "midnight", Name = "Midnight Roastery", RequiredFranchises = 2, Primary = { 49, 67, 77 }, Accent = { 192, 154, 96 } },
+	},
+}
+
+return Config

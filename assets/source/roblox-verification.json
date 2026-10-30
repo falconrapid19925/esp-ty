@@ -1,0 +1,127 @@
+{
+  "checked_at": "2026-10-30T22:52:23.355941+00:00",
+  "note": "Public distribution flag is not CC0 copyright licensing. Runtime playback/loading not tested in Studio.",
+  "assets": [
+    {
+      "id": 12520208389,
+      "name": "Coffee Machine",
+      "creator": "Ashbashthesmash",
+      "creator_id": 15596629,
+      "creator_verified": false,
+      "asset_type_id": 10,
+      "is_public_domain_distribution": true,
+      "source_api": "https://economy.roblox.com/v2/assets/12520208389/details",
+      "source_store": "https://create.roblox.com/store/asset/12520208389"
+    },
+    {
+      "id": 186713502,
+      "name": "Cafe Table & Chairs",
+      "creator": "Elliott_RBLX",
+      "creator_id": 17617819,
+      "creator_verified": false,
+      "asset_type_id": 10,
+      "is_public_domain_distribution": true,
+      "source_api": "https://economy.roblox.com/v2/assets/186713502/details",
+      "source_store": "https://create.roblox.com/store/asset/186713502"
+    },
+    {
+      "id": 13218937353,
+      "name": "Potted Plant",
+      "creator": "maadhouse",
+      "creator_id": 1341601210,
+      "creator_verified": false,
+      "asset_type_id": 10,
+      "is_public_domain_distribution": true,
+      "source_api": "https://economy.roblox.com/v2/assets/13218937353/details",
+      "source_store": "https://create.roblox.com/store/asset/13218937353"
+    },
+    {
+      "id": 1471275477,
+      "name": "Coffee Cup",
+      "creator": "LittleWorlds",
+      "creator_id": 36380223,
+      "creator_verified": false,
+      "asset_type_id": 10,
+      "is_public_domain_distribution": true,
+      "source_api": "https://economy.roblox.com/v2/assets/1471275477/details",
+      "source_store": "https://create.roblox.com/store/asset/1471275477"
+    },
+    {
+      "id": 5854562478,
+      "name": "Croissant",
+      "creator": "ViperXVI",
+      "creator_id": 30845847,
+      "creator_verified": false,
+      "asset_type_id": 10,
+      "is_public_domain_distribution": true,
+      "source_api": "https://economy.roblox.com/v2/assets/5854562478/details",
+      "source_store": "https://create.roblox.com/store/asset/5854562478"
+    },
+    {
+      "id": 472584642,
+      "name": "Cafe Furniture",
+      "creator": "BunnyFilms1",
+      "creator_id": 70241310,
+      "creator_verified": false,
+      "asset_type_id": 10,
+      "is_public_domain_distribution": true,
+      "source_api": "https://economy.roblox.com/v2/assets/472584642/details",
+      "source_store": "https://create.roblox.com/store/asset/472584642"
+    },
+    {
+      "id": 12221967,
+      "name": "button.wav",
+      "creator": "Roblox",
+      "creator_id": 1,
+      "creator_verified": true,
+      "asset_type_id": 3,
+      "is_public_domain_distribution": true,
+      "source_api": "https://economy.roblox.com/v2/assets/12221967/details",
+      "source_store": "https://create.roblox.com/store/asset/12221967"
+    },
+    {
+      "id": 365956378,
+      "name": "CoffeeBrew",
+      "creator": "Roblox",
+      "creator_id": 1,
+      "creator_verified": true,
+      "asset_type_id": 3,
+      "is_public_domain_distribution": true,
+      "source_api": "https://economy.roblox.com/v2/assets/365956378/details",
+      "source_store": "https://create.roblox.com/store/asset/365956378"
+    },
+    {
+      "id": 9047104336,
+      "name": "Sunday In Bed",
+      "creator": "APMOfficial",
+      "creator_id": 7462718749,
+      "creator_verified": false,
+      "asset_type_id": 3,
+      "is_public_domain_distribution": true,
+      "source_api": "https://economy.roblox.com/v2/assets/9047104336/details",
+      "source_store": "https://create.roblox.com/store/asset/9047104336"
+    },
+    {
+      "id": 1840684529,
+      "name": "Cool Vibes",
+      "creator": "APMOfficial",
+      "creator_id": 7462718749,
+      "creator_verified": false,
+      "asset_type_id": 3,
+      "is_public_domain_distribution": true,
+      "source_api": "https://economy.roblox.com/v2/assets/1840684529/details",
+      "source_store": "https://create.roblox.com/store/asset/1840684529"
+    },
+    {
+      "id": 1837623244,
+      "name": "Cafe Boy",
+      "creator": "APMOfficial",
+      "creator_id": 7462718749,
+      "creator_verified": false,
+      "asset_type_id": 3,
+      "is_public_domain_distribution": true,
+      "source_api": "https://economy.roblox.com/v2/assets/1837623244/details",
+      "source_store": "https://create.roblox.com/store/asset/1837623244"
+    }
+  ]
+}

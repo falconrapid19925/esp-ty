@@ -1,0 +1,3341 @@
+<roblox version="4">
+  <Item class="AssetService" referent="0">
+    <Properties>
+      <string name="Name">AssetService</string>
+      <bool name="AllowInsertFreeAssets">true</bool>
+    </Properties>
+  </Item>
+  <Item class="Lighting" referent="1">
+    <Properties>
+      <string name="Name">Lighting</string>
+      <Color3 name="Ambient">
+        <R>0.48</R>
+        <G>0.43</G>
+        <B>0.36</B>
+      </Color3>
+      <float name="Brightness">2</float>
+      <float name="ClockTime">15.5</float>
+      <bool name="GlobalShadows">true</bool>
+      <Color3 name="OutdoorAmbient">
+        <R>0.64</R>
+        <G>0.64</G>
+        <B>0.61</B>
+      </Color3>
+    </Properties>
+  </Item>
+  <Item class="ReplicatedStorage" referent="2">
+    <Properties>
+      <string name="Name">ReplicatedStorage</string>
+    </Properties>
+    <Item class="Folder" referent="3">
+      <Properties>
+        <string name="Name">Shared</string>
+      </Properties>
+      <Item class="ModuleScript" referent="4">
+        <Properties>
+          <string name="Name">AssetCatalog</string>
+          <string name="Source"><![CDATA[--!strict
+-- Creator Store metadata and thumbnails checked 2026-10-30.
+-- Roblox's IsPublicDomain=true means freely distributed on Roblox; it is not
+-- a declaration that third-party models/music are CC0 outside Roblox.
+-- No third-party code is used. See docs/ASSET_RESEARCH.md for provenance.
+return {
+	VerifiedOn = "2026-10-30",
+	PreloadTimeout = 12,
+	MaxDescendants = 2000,
+	MaxParts = 300,
+	Models = {
+		espresso_machine = {
+			Id = 12520208389,
+			Name = "Coffee Machine",
+			Creator = "Ashbashthesmash",
+			Source = "https://create.roblox.com/store/asset/12520208389/Coffee-Machine",
+			Preload = true,
+		},
+		cafe_table = {
+			Id = 186713502,
+			Name = "Cafe Table & Chairs",
+			Creator = "Elliott_RBLX",
+			Source = "https://create.roblox.com/store/asset/186713502/Cafe-Table-Chairs",
+			Preload = true,
+		},
+		plant = {
+			Id = 13218937353,
+			Name = "Potted Plant",
+			Creator = "maadhouse",
+			Source = "https://create.roblox.com/store/asset/13218937353/Potted-Plant",
+			Preload = true,
+		},
+		coffee_cup = {
+			Id = 1471275477,
+			Name = "Coffee Cup",
+			Creator = "LittleWorlds",
+			Source = "https://create.roblox.com/store/asset/1471275477/Coffee-Cup",
+			Preload = true,
+		},
+		pastry = {
+			Id = 5854562478,
+			Name = "Croissant",
+			Creator = "ViperXVI",
+			Source = "https://create.roblox.com/store/asset/5854562478/Croissant",
+			Preload = true,
+		},
+		-- This older coherent collection is a curation reference, not a single
+		-- prop to put onto every table. Import/select its pieces in Studio.
+		cafe_furniture = {
+			Id = 472584642,
+			Name = "Cafe Furniture",
+			Creator = "BunnyFilms1",
+			Source = "https://create.roblox.com/store/asset/472584642/Cafe-Furniture",
+			Preload = false,
+		},
+	},
+	Sounds = {
+		UiClick = {
+			Id = 12221967,
+			Name = "button.wav",
+			Creator = "Roblox",
+			Source = "https://create.roblox.com/store/asset/12221967",
+			PlaybackVerified = false,
+		},
+		Brew = {
+			Id = 365956378,
+			Name = "CoffeeBrew",
+			Creator = "Roblox",
+			Source = "https://create.roblox.com/store/asset/365956378",
+			OriginalSource = "https://freesound.org/people/hatchetgirl/sounds/185143/",
+			OriginalLicense = "CC0",
+			PlaybackVerified = false,
+		},
+	},
+	Music = {
+		EnabledByDefault = false,
+		Volume = 0.16,
+		Tracks = {
+			{
+				Id = 9047104336,
+				Name = "Sunday In Bed",
+				Creator = "APMOfficial",
+				Source = "https://create.roblox.com/store/asset/9047104336/Sunday-In-Bed",
+				PlaybackVerified = false,
+			},
+			{
+				Id = 1840684529,
+				Name = "Cool Vibes",
+				Creator = "APMOfficial",
+				Source = "https://create.roblox.com/store/asset/1840684529/Cool-Vibes",
+				PlaybackVerified = false,
+			},
+			{
+				Id = 1837623244,
+				Name = "Cafe Boy",
+				Creator = "APMOfficial",
+				Source = "https://create.roblox.com/store/asset/1837623244/Cafe-Boy",
+				PlaybackVerified = false,
+			},
+		},
+	},
+}
+]]></string>
+        </Properties>
+      </Item>
+      <Item class="ModuleScript" referent="5">
+        <Properties>
+          <string name="Name">Config</string>
+          <string name="Source"><![CDATA[-- Pure configuration; currency is earned in-game. No Robux products are configured.
+local Config = {
+	Version = 1,
+	Title = "Espresso Cafe Tycoon",
+	MaxPlots = 6,
+	StartingCash = 60,
+	SaveInterval = 60,
+	OfflineCapSeconds = 4 * 60 * 60,
+	OfflineRate = 0.12,
+	FranchiseCash = 20000,
+	FranchiseUpgrades = 18,
+	RushInterval = 300,
+	RushDuration = 60,
+	PerfectWindow = 1.4,
+	ServeWindow = 14,
+	Recipes = {
+		{ Id = "espresso", Name = "Espresso", Price = 24, BrewTime = 4, MenuLevel = 0, Color = { 100, 62, 42 } },
+		{ Id = "americano", Name = "Americano", Price = 38, BrewTime = 4.5, MenuLevel = 1, Color = { 128, 84, 51 } },
+		{ Id = "cappuccino", Name = "Cappuccino", Price = 58, BrewTime = 5, MenuLevel = 2, Color = { 209, 174, 130 } },
+		{ Id = "latte", Name = "Cafe Latte", Price = 82, BrewTime = 5.5, MenuLevel = 3, Color = { 232, 207, 164 } },
+		{ Id = "mocha", Name = "Mocha", Price = 110, BrewTime = 6, MenuLevel = 4, Color = { 124, 74, 51 } },
+		{ Id = "cold_brew", Name = "Cold Brew", Price = 145, BrewTime = 6.5, MenuLevel = 5, Color = { 99, 69, 49 } },
+	},
+	Upgrades = {
+		{ Id = "machine", Name = "Espresso machine", Description = "Faster extraction. Each level reduces brew time by 12%.", BaseCost = 65, CostScale = 1.9, MaxLevel = 5 },
+		{ Id = "beans", Name = "Specialty beans", Description = "Better beans earn 18% more per level.", BaseCost = 95, CostScale = 1.95, MaxLevel = 5 },
+		{ Id = "seating", Name = "Cafe seating", Description = "Add tables and speed up your staff's service.", BaseCost = 130, CostScale = 1.9, MaxLevel = 5 },
+		{ Id = "menu", Name = "Recipe notebook", Description = "Unlock the next drink, from Americano to Cold Brew.", BaseCost = 150, CostScale = 1.8, MaxLevel = 5 },
+		{ Id = "staff", Name = "Hire a barista", Description = "Staff serve customers automatically. Extra levels improve speed.", BaseCost = 450, CostScale = 2.3, MaxLevel = 3 },
+		{ Id = "bakery", Name = "Pastry counter", Description = "Add pastries and earn 8% more per level.", BaseCost = 650, CostScale = 2.0, MaxLevel = 3 },
+		{ Id = "decor", Name = "Cafe atmosphere", Description = "Upgrade decor and earn 5% more per level.", BaseCost = 220, CostScale = 1.9, MaxLevel = 4 },
+		{ Id = "expansion", Name = "Cafe expansion", Description = "Open your terrace, then expand the coffee house.", BaseCost = 1800, CostScale = 2.6, MaxLevel = 2 },
+	},
+	Quests = {
+		{ Id = "daily_serve", Name = "Serve 20 customers", Metric = "Served", Target = 20, Reward = 300 },
+		{ Id = "daily_earn", Name = "Earn $1,800 from service", Metric = "Earned", Target = 1800, Reward = 450 },
+		{ Id = "daily_upgrade", Name = "Buy 3 cafe upgrades", Metric = "Upgrades", Target = 3, Reward = 400 },
+	},
+	Achievements = {
+		{ Id = "first_ten", Name = "Your first regulars", Metric = "LifetimeServed", Target = 10, Reward = 150 },
+		{ Id = "hundred", Name = "The neighborhood favorite", Metric = "LifetimeServed", Target = 100, Reward = 1000 },
+		{ Id = "five_hundred", Name = "Coffee destination", Metric = "LifetimeServed", Target = 500, Reward = 4000 },
+		{ Id = "first_five", Name = "A better coffee house", Metric = "TotalUpgrades", Target = 5, Reward = 300 },
+		{ Id = "fifteen", Name = "Built with care", Metric = "TotalUpgrades", Target = 15, Reward = 1500 },
+		{ Id = "perfect_ten", Name = "Dialed in", Metric = "PerfectShots", Target = 10, Reward = 400 },
+		{ Id = "first_franchise", Name = "A new chapter", Metric = "Franchises", Target = 1, Reward = 1500 },
+	},
+	Themes = {
+		{ Id = "sage", Name = "Sage & Cream", RequiredFranchises = 0, Primary = { 101, 127, 106 }, Accent = { 221, 185, 137 } },
+		{ Id = "terracotta", Name = "Terracotta Studio", RequiredFranchises = 1, Primary = { 171, 99, 75 }, Accent = { 237, 198, 148 } },
+		{ Id = "midnight", Name = "Midnight Roastery", RequiredFranchises = 2, Primary = { 49, 67, 77 }, Accent = { 192, 154, 96 } },
+	},
+}
+
+return Config
+]]></string>
+        </Properties>
+      </Item>
+      <Item class="ModuleScript" referent="6">
+        <Properties>
+          <string name="Name">Economy</string>
+          <string name="Source"><![CDATA[-- Pure deterministic economy. now is Unix seconds; Roblox services stay in GameService.
+local Config = if script then require(script.Parent.Config) else require("./Config")
+local Economy = {}
+local MAX_NUMBER = 1e12
+
+local function number(value, default, limit)
+	if type(value) ~= "number" or value ~= value or math.abs(value) == math.huge then
+		return default
+	end
+	return math.clamp(math.floor(value), 0, limit or MAX_NUMBER)
+end
+
+local function find(list, id)
+	for _, item in ipairs(list) do
+		if item.Id == id then return item end
+	end
+	return nil
+end
+
+local function day(now)
+	return math.floor(now / 86400)
+end
+
+local function credit(profile, amount)
+	amount = number(amount, 0)
+	profile.Cash = math.min(MAX_NUMBER, profile.Cash + amount)
+	return amount
+end
+
+function Economy.newProfile(now)
+	local upgrades = {}
+	for _, upgrade in ipairs(Config.Upgrades) do upgrades[upgrade.Id] = 0 end
+	return {
+		Version = Config.Version, Cash = Config.StartingCash,
+		LifetimeEarned = 0, LifetimeServed = 0, ManualServed = 0, PerfectShots = 0,
+		TotalUpgrades = 0, Franchises = 0, Upgrades = upgrades, Theme = "sage",
+		Daily = { Day = day(now), Served = 0, Earned = 0, Upgrades = 0, Claimed = {} },
+		Achievements = {}, LastSeen = now,
+	}
+end
+
+function Economy.rollDaily(profile, now)
+	if type(profile.Daily) ~= "table" or profile.Daily.Day ~= day(now) then
+		profile.Daily = { Day = day(now), Served = 0, Earned = 0, Upgrades = 0, Claimed = {} }
+	end
+end
+
+function Economy.sanitize(raw, now)
+	local profile = Economy.newProfile(now)
+	if type(raw) ~= "table" then return profile end
+	for _, key in ipairs({ "Cash", "LifetimeEarned", "LifetimeServed", "ManualServed", "PerfectShots", "TotalUpgrades", "Franchises", "LastSeen" }) do
+		profile[key] = number(raw[key], profile[key], key == "Franchises" and 1000 or MAX_NUMBER)
+	end
+	profile.LastSeen = math.min(profile.LastSeen, now)
+	if type(raw.Upgrades) == "table" then
+		for _, upgrade in ipairs(Config.Upgrades) do
+			profile.Upgrades[upgrade.Id] = number(raw.Upgrades[upgrade.Id], 0, upgrade.MaxLevel)
+		end
+	end
+	local theme = find(Config.Themes, raw.Theme)
+	if theme and profile.Franchises >= theme.RequiredFranchises then profile.Theme = theme.Id end
+	if type(raw.Achievements) == "table" then
+		for _, achievement in ipairs(Config.Achievements) do
+			if raw.Achievements[achievement.Id] == true then profile.Achievements[achievement.Id] = true end
+		end
+	end
+	if type(raw.Daily) == "table" and raw.Daily.Day == day(now) then
+		for _, key in ipairs({ "Served", "Earned", "Upgrades" }) do
+			profile.Daily[key] = number(raw.Daily[key], 0)
+		end
+		if type(raw.Daily.Claimed) == "table" then
+			for _, quest in ipairs(Config.Quests) do
+				if raw.Daily.Claimed[quest.Id] == true then profile.Daily.Claimed[quest.Id] = true end
+			end
+		end
+	end
+	return profile
+end
+
+function Economy.recipe(profile, id)
+	local recipe = find(Config.Recipes, id)
+	return recipe and recipe.MenuLevel <= profile.Upgrades.menu and recipe or nil
+end
+
+function Economy.unlockedRecipes(profile)
+	local recipes = {}
+	for _, recipe in ipairs(Config.Recipes) do
+		if recipe.MenuLevel <= profile.Upgrades.menu then table.insert(recipes, recipe) end
+	end
+	return recipes
+end
+
+function Economy.upgradeCost(profile, id)
+	local upgrade = find(Config.Upgrades, id)
+	if not upgrade or profile.Upgrades[id] >= upgrade.MaxLevel then return nil end
+	return math.floor(upgrade.BaseCost * upgrade.CostScale ^ profile.Upgrades[id] + 0.5)
+end
+
+function Economy.buyUpgrade(profile, id, now)
+	Economy.rollDaily(profile, now)
+	local cost = Economy.upgradeCost(profile, id)
+	if not cost then return false, "This upgrade is unavailable or already complete." end
+	if profile.Cash < cost then return false, "Serve a few more coffees to afford this upgrade." end
+	profile.Cash -= cost
+	profile.Upgrades[id] += 1
+	profile.TotalUpgrades += 1
+	profile.Daily.Upgrades += 1
+	return true, find(Config.Upgrades, id).Name .. " upgraded!"
+end
+
+function Economy.brewDuration(profile, recipe)
+	return math.max(1.4, recipe.BrewTime * (1 - 0.12 * profile.Upgrades.machine))
+end
+
+function Economy.saleValue(profile, recipe, perfect, vip, rush)
+	local value = recipe.Price
+		* (1 + profile.Upgrades.beans * 0.18)
+		* (1 + profile.Upgrades.bakery * 0.08)
+		* (1 + profile.Upgrades.decor * 0.05)
+		* (1 + profile.Franchises * 0.20)
+	if perfect then value *= 1.35 end
+	if vip then value *= 1.6 end
+	if rush then value *= 1.25 end
+	return math.floor(value + 0.5)
+end
+
+function Economy.recordSale(profile, recipeId, perfect, vip, rush, now)
+	local recipe = Economy.recipe(profile, recipeId)
+	if not recipe then return 0 end
+	Economy.rollDaily(profile, now)
+	local amount = credit(profile, Economy.saleValue(profile, recipe, perfect, vip, rush))
+	profile.LifetimeEarned = math.min(MAX_NUMBER, profile.LifetimeEarned + amount)
+	profile.LifetimeServed += 1
+	profile.Daily.Served += 1
+	profile.Daily.Earned += amount
+	if perfect then profile.PerfectShots += 1 end
+	return amount
+end
+
+function Economy.staffInterval(profile)
+	return math.max(3, 14 - profile.Upgrades.staff * 1.8 - profile.Upgrades.machine * 0.7 - profile.Upgrades.seating * 0.3)
+end
+
+function Economy.offlineEarnings(profile, seconds)
+	if profile.Upgrades.staff <= 0 then return 0 end
+	local recipes = Economy.unlockedRecipes(profile)
+	local recipe = recipes[#recipes]
+	local cycles = math.floor(math.clamp(seconds, 0, Config.OfflineCapSeconds) / Economy.staffInterval(profile))
+	return math.floor(cycles * Economy.saleValue(profile, recipe, false, false, false) * Config.OfflineRate)
+end
+
+function Economy.claimQuest(profile, id, now)
+	Economy.rollDaily(profile, now)
+	local quest = find(Config.Quests, id)
+	if not quest then return false, "Unknown daily goal." end
+	if profile.Daily.Claimed[id] then return false, "You already claimed this daily goal." end
+	if profile.Daily[quest.Metric] < quest.Target then return false, "Keep brewing to finish this goal." end
+	profile.Daily.Claimed[id] = true
+	credit(profile, quest.Reward)
+	return true, "Daily goal complete! +$" .. tostring(quest.Reward)
+end
+
+function Economy.claimAchievement(profile, id)
+	local achievement = find(Config.Achievements, id)
+	if not achievement then return false, "Unknown milestone." end
+	if profile.Achievements[id] then return false, "You already claimed this milestone." end
+	if (profile[achievement.Metric] or 0) < achievement.Target then return false, "This milestone is still ahead of you." end
+	profile.Achievements[id] = true
+	credit(profile, achievement.Reward)
+	return true, "Milestone reached! +$" .. tostring(achievement.Reward)
+end
+
+function Economy.canFranchise(profile)
+	local upgrades = 0
+	for _, level in pairs(profile.Upgrades) do upgrades += level end
+	if profile.Cash < Config.FranchiseCash then return false, "Save $20,000 cash for your next chapter." end
+	if upgrades < Config.FranchiseUpgrades then return false, "Buy at least 18 upgrades in this cafe first." end
+	if profile.Upgrades.expansion < 2 then return false, "Complete both cafe expansions first." end
+	return true, "Start a new cafe with +20% permanent service income. Styles unlock at franchises 1 and 2."
+end
+
+function Economy.franchise(profile, now)
+	local allowed, message = Economy.canFranchise(profile)
+	if not allowed then return false, message end
+	profile.Franchises += 1
+	profile.Cash = Config.StartingCash
+	for id in pairs(profile.Upgrades) do profile.Upgrades[id] = 0 end
+	profile.LastSeen = now
+	return true, "New franchise opened! Permanent income bonus increased by 20%."
+end
+
+function Economy.setTheme(profile, id)
+	local theme = find(Config.Themes, id)
+	if not theme then return false, "Unknown cafe style." end
+	if profile.Franchises < theme.RequiredFranchises then return false, "Open another franchise to unlock this style." end
+	profile.Theme = id
+	return true, theme.Name .. " applied."
+end
+
+function Economy.formatMoney(amount)
+	amount = math.floor(math.max(0, amount))
+	if amount >= 1e9 then return string.format("$%.2fB", amount / 1e9) end
+	if amount >= 1e6 then return string.format("$%.2fM", amount / 1e6) end
+	if amount >= 1e4 then return string.format("$%.1fK", amount / 1e3) end
+	local text = tostring(amount)
+	while true do
+		local count
+		text, count = string.gsub(text, "^(%d+)(%d%d%d)", "%1,%2")
+		if count == 0 then break end
+	end
+	return "$" .. text
+end
+
+return Economy
+]]></string>
+        </Properties>
+      </Item>
+    </Item>
+  </Item>
+  <Item class="ServerScriptService" referent="7">
+    <Properties>
+      <string name="Name">ServerScriptService</string>
+    </Properties>
+    <Item class="Folder" referent="8">
+      <Properties>
+        <string name="Name">Server</string>
+      </Properties>
+      <Item class="ModuleScript" referent="9">
+        <Properties>
+          <string name="Name">Assets</string>
+          <string name="Source"><![CDATA[--!nonstrict
+-- An allowlisted, geometry-only Creator Store loader. Third-party code never
+-- enters Workspace. Models stay unparented until sanitized; LoadAssetAsync's
+-- default sandbox remains intact. No require(assetId), HTTP execution, or
+-- capabilities are granted to downloaded content.
+local AssetService = game:GetService("AssetService")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local ServerStorage = game:GetService("ServerStorage")
+local Catalog = require(ReplicatedStorage:WaitForChild("Shared"):WaitForChild("AssetCatalog"))
+
+local Assets = {}
+local cache = {}
+local statuses = {}
+local started = false
+local remaining = 0
+
+local allowedClasses = {
+	Model = true,
+	Folder = true,
+	Part = true,
+	WedgePart = true,
+	CornerWedgePart = true,
+	MeshPart = true,
+	UnionOperation = true,
+	NegateOperation = true,
+	TrussPart = true,
+	Seat = true,
+	VehicleSeat = true,
+	SpecialMesh = true,
+	BlockMesh = true,
+	CylinderMesh = true,
+	Decal = true,
+	Texture = true,
+	SurfaceAppearance = true,
+}
+
+local function finite(value)
+	return value == value and value > -math.huge and value < math.huge
+end
+
+local function sanitize(candidate, key)
+	if typeof(candidate) ~= "Instance" then
+		return nil, "asset did not contain an Instance"
+	end
+	local model
+	if candidate:IsA("Model") then
+		model = candidate
+	else
+		model = Instance.new("Model")
+		candidate.Parent = model
+	end
+	model.Parent = nil
+	model.Name = key
+	local descendants = model:GetDescendants()
+	if #descendants > Catalog.MaxDescendants then
+		model:Destroy()
+		return nil, "asset exceeded descendant budget"
+	end
+	-- Some otherwise useful cup/furniture models wrap their mesh parts in a
+	-- Tool or another interactive container. Preserve the visual geometry
+	-- before removing that container; no interactions or scripts are retained.
+	for _, descendant in ipairs(descendants) do
+		if descendant:IsA("BasePart") and allowedClasses[descendant.ClassName] then
+			descendant.Parent = model
+		end
+	end
+	local parts = 0
+	for _, descendant in ipairs(descendants) do
+		-- Removing an interactive ancestor may already have destroyed this
+		-- entry from the original traversal. Some runtimes reject all access
+		-- to destroyed Instances, so skip such entries without aborting load.
+		local exists, belongs = pcall(function()
+			return descendant:IsDescendantOf(model)
+		end)
+		if exists and belongs then
+			if not allowedClasses[descendant.ClassName] then
+				-- This removes every LuaSourceContainer, PackageLink, remote,
+				-- prompt, tool, humanoid, constraint, sound, and particle emitter.
+				descendant:Destroy()
+			elseif descendant:IsA("BasePart") then
+				parts += 1
+				local size = descendant.Size
+				local position = descendant.Position
+				if parts > Catalog.MaxParts
+					or not finite(size.X + size.Y + size.Z)
+					or not finite(position.X + position.Y + position.Z)
+					or math.max(size.X, size.Y, size.Z) > 500 then
+					model:Destroy()
+					return nil, "asset exceeded geometry budget"
+				end
+				descendant.Anchored = true
+				descendant.CanCollide = false
+				descendant.CanTouch = false
+				descendant.CanQuery = false
+				descendant.Massless = true
+				descendant.AssemblyLinearVelocity = Vector3.zero
+				descendant.AssemblyAngularVelocity = Vector3.zero
+				if descendant:IsA("Seat") or descendant:IsA("VehicleSeat") then
+					descendant.Disabled = true
+				end
+			end
+		end
+	end
+	if parts == 0 then
+		model:Destroy()
+		return nil, "asset contained no allowed geometry"
+	end
+	local _, bounds = model:GetBoundingBox()
+	if not finite(bounds.X + bounds.Y + bounds.Z)
+		or math.max(bounds.X, bounds.Y, bounds.Z) > 1000 then
+		model:Destroy()
+		return nil, "asset bounds were invalid"
+	end
+	model:SetAttribute("AssetKey", key)
+	return model
+end
+
+local function override(key)
+	local folder = ServerStorage:FindFirstChild("AssetOverrides")
+	local instance = folder and folder:FindFirstChild(key)
+	if not instance then
+		return nil
+	end
+	return sanitize(instance:Clone(), key)
+end
+
+local function load(key, entry)
+	local localModel, localError = override(key)
+	if localModel then
+		cache[key] = localModel
+		statuses[key] = "local override"
+		return
+	elseif localError then
+		warn("[Assets] Ignored invalid local override " .. key .. ": " .. localError)
+	end
+	local permissionOk, allowed = pcall(function()
+		return AssetService.AllowInsertFreeAssets
+	end)
+	if permissionOk and not allowed then
+		statuses[key] = "third-party loading disabled"
+		return
+	end
+	local ok, loaded = pcall(function()
+		return AssetService:LoadAssetAsync(entry.Id)
+	end)
+	if not ok then
+		statuses[key] = "load failed"
+		warn("[Assets] " .. key .. " could not load; using fallback. " .. tostring(loaded))
+		return
+	end
+	local sanitized, reason = sanitize(loaded, key)
+	if not sanitized then
+		statuses[key] = "rejected geometry"
+		warn("[Assets] " .. key .. " rejected: " .. tostring(reason))
+		return
+	end
+	-- Keep large modern asset IDs exact in serialized attribute formats too.
+	sanitized:SetAttribute("SourceAssetId", tostring(entry.Id))
+	cache[key] = sanitized
+	statuses[key] = "creator store"
+end
+
+function Assets.preload(timeout)
+	if not started then
+		started = true
+		for key, entry in pairs(Catalog.Models) do
+			if entry.Preload then
+				remaining += 1
+				statuses[key] = "loading"
+				task.spawn(function()
+					local ok, failure = pcall(load, key, entry)
+					if not ok then
+						statuses[key] = "load failed"
+						warn("[Assets] " .. key .. ": " .. tostring(failure))
+					end
+					remaining -= 1
+				end)
+			end
+		end
+	end
+	local deadline = os.clock() + (timeout or Catalog.PreloadTimeout)
+	while remaining > 0 and os.clock() < deadline do
+		task.wait(0.1)
+	end
+	local unavailable = {}
+	for key, entry in pairs(Catalog.Models) do
+		if entry.Preload and not cache[key] then
+			table.insert(unavailable, key)
+		end
+	end
+	if #unavailable > 0 then
+		warn("[Assets] Using geometry fallbacks for " .. table.concat(unavailable, ", ")
+			.. ". To use the selected free models, enable Allow Loading Third Party Assets in Studio Experience Settings"
+			.. " or import models into ServerStorage.AssetOverrides. See docs/ASSET_RESEARCH.md.")
+	end
+	return Assets.getStatus()
+end
+
+function Assets.get(key)
+	if type(key) ~= "string" then
+		return nil
+	end
+	-- Local artist imports work even for optional keys such as cafe_chair.
+	if not cache[key] then
+		local model = override(key)
+		if model then
+			cache[key] = model
+			statuses[key] = "local override"
+		end
+	end
+	local model = cache[key]
+	if not model then
+		return nil
+	end
+	return model:Clone()
+end
+
+function Assets.getStatus()
+	return table.clone(statuses)
+end
+
+function Assets.sounds()
+	return Catalog.Sounds
+end
+
+return Assets
+]]></string>
+        </Properties>
+      </Item>
+      <Item class="ModuleScript" referent="10">
+        <Properties>
+          <string name="Name">DataService</string>
+          <string name="Source"><![CDATA[-- Persistence stays server-side. A failed load never becomes a writable new save.
+local DataStoreService = game:GetService("DataStoreService")
+local HttpService = game:GetService("HttpService")
+local RunService = game:GetService("RunService")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local Config = require(ReplicatedStorage.Shared.Config)
+local Economy = require(ReplicatedStorage.Shared.Economy)
+
+local DataService = {}
+DataService.__index = DataService
+
+local SAVE_INTERVAL = Config.SaveInterval or 60
+local LEASE_SECONDS = math.max(180, SAVE_INTERVAL * 4)
+local MAX_ATTEMPTS = 3
+local SCHEMA_VERSION = Config.Version or 1
+
+local function copy(value)
+	if type(value) ~= "table" then
+		return value
+	end
+	local result = {}
+	for key, entry in pairs(value) do
+		result[key] = copy(entry)
+	end
+	return result
+end
+
+local function studioApiUnavailable(message)
+	if not RunService:IsStudio() then
+		return false
+	end
+	if game.GameId == 0 then
+		return true
+	end
+	local text = string.lower(tostring(message))
+	return string.find(text, "studioaccesstoapisnotallowed", 1, true) ~= nil
+		or (string.find(text, "studio", 1, true) ~= nil
+		and string.find(text, "api", 1, true) ~= nil
+		and (string.find(text, "not allowed", 1, true) ~= nil
+			or string.find(text, "not enabled", 1, true) ~= nil
+			or string.find(text, "disabled", 1, true) ~= nil
+			or string.find(text, "403", 1, true) ~= nil))
+		or string.find(text, "must be published", 1, true) ~= nil
+		or string.find(text, "placenotpublished", 1, true) ~= nil
+end
+
+function DataService.new(onStatus)
+	local self = setmetatable({
+		Sessions = {},
+		OnStatus = onStatus,
+		Stopping = false,
+		Store = nil,
+		StoreError = nil,
+	}, DataService)
+	local success, result = pcall(function()
+		return DataStoreService:GetDataStore("EspressoCafeTycoon_Profiles_v1")
+	end)
+	if success then
+		self.Store = result
+	else
+		self.StoreError = tostring(result)
+	end
+	task.spawn(function()
+		while not self.Stopping do
+			task.wait(2)
+			local now = os.clock()
+			for userId, session in pairs(self.Sessions) do
+				if session.Profile and not session.Loading and not session.Closing and not session.Lost
+					and not session.Saving and now - session.LastAttempt >= SAVE_INTERVAL then
+					task.spawn(function()
+						self:save(userId, false)
+					end)
+				end
+			end
+		end
+	end)
+	return self
+end
+
+function DataService:_status(session, status)
+	session.Status = status
+	if self.OnStatus then
+		local success, failure = pcall(self.OnStatus, session.UserId, status)
+		if not success then
+			warn("[Espresso] Save-status callback failed: " .. tostring(failure))
+		end
+	end
+end
+
+function DataService:getStatus(userId)
+	local session = self.Sessions[userId]
+	return if session then session.Status else "Loading"
+end
+
+function DataService:isWritable(userId)
+	local session = self.Sessions[userId]
+	if not session or not session.Profile or session.Loading or session.Closing or session.Lost then
+		return false
+	end
+	if session.Persistent and os.time() >= session.LeaseExpiresAt then
+		if session.Status ~= "Save delayed" then
+			self:_status(session, "Save delayed")
+		end
+		return false
+	end
+	return true
+end
+
+function DataService:markDirty(userId)
+	local session = self.Sessions[userId]
+	if session then
+		session.Revision += 1
+	end
+end
+
+function DataService:load(player)
+	local userId = player.UserId
+	if self.Stopping then
+		return nil, "Server is closing. Please join another server."
+	end
+	local current = self.Sessions[userId]
+	if current then
+		if current.Loading then
+			return nil, "Your café is still loading."
+		end
+		if current.Lost then
+			return nil, "Your save session moved to another server. Please rejoin."
+		end
+		if current.Profile and not current.Closing then
+			return current.Profile
+		end
+		if current.Closing then
+			return nil, "Your previous café session is still closing. Please retry shortly."
+		end
+	end
+	local session = {
+		UserId = userId,
+		Token = game.JobId .. ":" .. HttpService:GenerateGUID(false),
+		Profile = nil,
+		Loading = true,
+		Closing = false,
+		Saving = false,
+		Persistent = false,
+		Lost = false,
+		Status = "Loading",
+		Revision = 0,
+		LastAttempt = os.clock(),
+		LastSaved = os.clock(),
+		LeaseExpiresAt = 0,
+	}
+	self.Sessions[userId] = session
+	self:_status(session, "Loading")
+	local failure = self.StoreError or "Data service is unavailable."
+	local blockedReason = nil
+	local result = nil
+	-- Unpublished Studio files cannot use DataStores. Their progress is explicitly temporary.
+	local sessionOnly = RunService:IsStudio() and game.GameId == 0
+	if not sessionOnly and self.Store then
+		for attempt = 1, MAX_ATTEMPTS do
+			if session.Closing then
+				break
+			end
+			blockedReason = nil
+			local success, value = pcall(function()
+				return self.Store:UpdateAsync("Player_" .. userId, function(old)
+					blockedReason = nil
+					local oldProfile = if type(old) == "table" and type(old.Profile) == "table" then old.Profile else old
+					if type(old) == "table" and type(old.SchemaVersion) == "number" and old.SchemaVersion > SCHEMA_VERSION then
+						blockedReason = "This save uses a newer game version. Please rejoin a newer server."
+						return nil
+					end
+					if type(oldProfile) == "table" and type(oldProfile.Version) == "number"
+						and oldProfile.Version > SCHEMA_VERSION then
+						blockedReason = "This save uses a newer game version. Please rejoin a newer server."
+						return nil
+					end
+					local lease = if type(old) == "table" then old.Session else nil
+					if type(lease) == "table" and lease.Id ~= session.Token
+						and type(lease.ExpiresAt) == "number" and lease.ExpiresAt > os.time() then
+						blockedReason = "Your café is open in another server. Close that session and retry shortly."
+						return nil
+					end
+					local profile = Economy.sanitize(oldProfile, os.time())
+					return {
+						SchemaVersion = SCHEMA_VERSION,
+						Profile = profile,
+						Session = {Id = session.Token, ExpiresAt = os.time() + LEASE_SECONDS},
+					}
+				end)
+			end)
+			if success and type(value) == "table" and type(value.Session) == "table"
+				and value.Session.Id == session.Token and type(value.Profile) == "table" then
+				result = value.Profile
+				session.Persistent = true
+				session.LeaseExpiresAt = value.Session.ExpiresAt
+				break
+			elseif blockedReason then
+				failure = blockedReason
+				break
+			elseif not success then
+				failure = tostring(value)
+				if studioApiUnavailable(failure) then
+					sessionOnly = true
+					break
+				end
+			else
+				failure = "Data service returned no profile. Please retry shortly."
+			end
+			if attempt < MAX_ATTEMPTS then
+				task.wait(0.5 * (2 ^ (attempt - 1)) + math.random() * 0.2)
+			end
+		end
+	elseif not sessionOnly and studioApiUnavailable(failure) then
+		sessionOnly = true
+	end
+	if sessionOnly then
+		result = Economy.newProfile(os.time())
+		session.Persistent = false
+	end
+	session.Loading = false
+	if not result then
+		if self.Sessions[userId] == session then
+			self.Sessions[userId] = nil
+		end
+		if not session.Closing then
+			warn("[Espresso] Profile load refused for user " .. userId .. ": " .. tostring(failure))
+		end
+		-- Details stay in server logs; user-facing error never suggests a reset or overwrites data.
+		return nil, blockedReason or "We couldn't safely load your café. Your saved progress was not changed. Retrying shortly."
+	end
+	session.Profile = result
+	session.LastSaved = os.clock()
+	session.LastAttempt = os.clock()
+	self:_status(session, if session.Persistent then "Saved" else "Session only")
+	if session.Closing or self.Stopping then
+		self:save(userId, true)
+		return nil, "Player left while the café was loading."
+	end
+	return result
+end
+
+function DataService:save(userId, release)
+	local session = self.Sessions[userId]
+	if not session then
+		return false
+	end
+	if release then
+		session.Closing = true
+	end
+	if session.Loading then
+		-- load() checks Closing after the lease request returns and releases that exact token.
+		return false
+	end
+	if session.Saving then
+		if not release then
+			return false
+		end
+		local deadline = os.clock() + 8
+		while session.Saving and os.clock() < deadline do
+			task.wait(0.05)
+		end
+		if session.Saving or self.Sessions[userId] ~= session then
+			return false
+		end
+	end
+	if not session.Profile or session.Lost then
+		if release and self.Sessions[userId] == session then
+			self.Sessions[userId] = nil
+		end
+		return false
+	end
+	session.Saving = true
+	session.LastAttempt = os.clock()
+	local snapshot = copy(session.Profile)
+	snapshot.LastSeen = os.time()
+	local revision = session.Revision
+	if not session.Persistent then
+		session.Profile.LastSeen = snapshot.LastSeen
+		session.Saving = false
+		self:_status(session, "Session only")
+		if release and self.Sessions[userId] == session then
+			self.Sessions[userId] = nil
+		end
+		return true
+	end
+	self:_status(session, "Saving")
+	local saved = false
+	local lost = false
+	local failure = "Unknown save error"
+	for attempt = 1, MAX_ATTEMPTS do
+		lost = false
+		local success, value = pcall(function()
+			return self.Store:UpdateAsync("Player_" .. userId, function(old)
+				local lease = if type(old) == "table" then old.Session else nil
+				if type(lease) ~= "table" or lease.Id ~= session.Token then
+					lost = true
+					return nil
+				end
+				return {
+					SchemaVersion = SCHEMA_VERSION,
+					Profile = snapshot,
+					Session = if release then nil else {Id = session.Token, ExpiresAt = os.time() + LEASE_SECONDS},
+				}
+			end)
+		end)
+		if success and not lost and type(value) == "table" and type(value.Profile) == "table" then
+			saved = true
+			if not release and type(value.Session) == "table" then
+				session.LeaseExpiresAt = value.Session.ExpiresAt
+			end
+			break
+		elseif lost then
+			break
+		else
+			failure = tostring(value)
+		end
+		if attempt < MAX_ATTEMPTS then
+			task.wait(0.5 * (2 ^ (attempt - 1)) + math.random() * 0.2)
+		end
+	end
+	session.Saving = false
+	if saved then
+		session.Profile.LastSeen = snapshot.LastSeen
+		session.LastSaved = os.clock()
+		session.SavedRevision = revision
+		self:_status(session, "Saved")
+	elseif lost then
+		session.Lost = true
+		self:_status(session, "Session lost")
+		warn("[Espresso] Profile lease lost for user " .. userId .. "; further progression has been blocked.")
+	else
+		self:_status(session, "Save failed")
+		warn("[Espresso] Profile save failed for user " .. userId .. ": " .. failure)
+		-- Retry failed saves sooner, without creating a hot request loop.
+		session.LastAttempt = os.clock() - math.max(0, SAVE_INTERVAL - 12)
+	end
+	if release and self.Sessions[userId] == session then
+		self.Sessions[userId] = nil
+	end
+	return saved
+end
+
+function DataService:release(userId)
+	return self:save(userId, true)
+end
+
+function DataService:shutdown()
+	if self.Stopping then
+		return
+	end
+	self.Stopping = true
+	local pending = 0
+	for userId, session in pairs(self.Sessions) do
+		session.Closing = true
+		pending += 1
+		task.spawn(function()
+			self:release(userId)
+			pending -= 1
+		end)
+	end
+	local deadline = os.clock() + 25
+	while os.clock() < deadline do
+		local loading = false
+		for _, session in pairs(self.Sessions) do
+			if session.Loading or session.Saving then
+				loading = true
+				break
+			end
+		end
+		if pending == 0 and not loading then
+			break
+		end
+		task.wait(0.1)
+	end
+end
+
+return DataService
+]]></string>
+        </Properties>
+      </Item>
+      <Item class="ModuleScript" referent="11">
+        <Properties>
+          <string name="Name">GameService</string>
+          <string name="Source"><![CDATA[local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local AnalyticsService = game:GetService("AnalyticsService")
+local RunService = game:GetService("RunService")
+
+local Config = require(ReplicatedStorage.Shared.Config)
+local Economy = require(ReplicatedStorage.Shared.Economy)
+local DataService = require(script.Parent.DataService)
+
+local GameService = {}
+local started = false
+
+local function instance(className, name, parent)
+	local existing = parent:FindFirstChild(name)
+	if existing then
+		assert(existing:IsA(className), name .. " has an unexpected class")
+		return existing
+	end
+	local object = Instance.new(className)
+	object.Name = name
+	object.Parent = parent
+	return object
+end
+
+function GameService.start(world)
+	assert(not started, "Espresso GameService was already started")
+	started = true
+	local remotes = instance("Folder", "Remotes", ReplicatedStorage)
+	local actionEvent = instance("RemoteEvent", "Action", remotes)
+	local stateEvent = instance("RemoteEvent", "State", remotes)
+	local getState = instance("RemoteFunction", "GetState", remotes)
+	local states = {}
+	local stopping = false
+	local rushDuration = Config.RushDuration or 40
+	local rushInterval = Config.RushInterval or 240
+	local rush = {Active = false, EndsAt = 0, NextAt = workspace:GetServerTimeNow() + rushInterval}
+	local data
+	local attemptLoad
+
+	local function worldCall(method, ...)
+		if type(world[method]) == "function" then
+			local success, failure = pcall(world[method], world, ...)
+			if not success then
+				warn("[Espresso] World " .. method .. " failed: " .. tostring(failure))
+			end
+			return success
+		end
+		return false
+	end
+
+	local function snapshot(state)
+		return {
+			Ready = state.Ready == true,
+			Error = state.Error,
+			Profile = if state.Ready then state.Profile else nil,
+			PlotIndex = state.PlotIndex,
+			SelectedRecipe = state.SelectedRecipe or "espresso",
+			Order = state.Order,
+			Brew = state.Brew,
+			ServerTime = workspace:GetServerTimeNow(),
+			Rush = {Active = rush.Active, EndsAt = rush.EndsAt, NextAt = rush.NextAt},
+			SaveStatus = data:getStatus(state.Player.UserId),
+			OfflineReward = state.OfflineReward or 0,
+			Message = state.Message,
+		}
+	end
+
+	local function push(state, message)
+		if state.Dead or state.Player.Parent ~= Players then
+			return
+		end
+		if message then
+			state.Message = message
+		end
+		state.LastPush = workspace:GetServerTimeNow()
+		stateEvent:FireClient(state.Player, snapshot(state))
+	end
+
+	local function leaderstats(state)
+		local folder = instance("Folder", "leaderstats", state.Player)
+		instance("IntValue", "Cash", folder).Value = math.floor(state.Profile.Cash)
+		instance("IntValue", "Served", folder).Value = math.floor(state.Profile.LifetimeServed)
+		instance("IntValue", "Franchises", folder).Value = math.floor(state.Profile.Franchises)
+	end
+
+	local function funnel(state, step, name)
+		if not state.NewPlayer or state.Funnel[step] or RunService:IsStudio() or game.GameId == 0 then
+			return
+		end
+		state.Funnel[step] = true
+		task.spawn(function()
+			local success, failure = pcall(function()
+				AnalyticsService:LogOnboardingFunnelStepEvent(state.Player, step, name)
+			end)
+			if not success then
+				warn("[Espresso] Onboarding analytics unavailable: " .. tostring(failure))
+			end
+		end)
+	end
+
+	data = DataService.new(function(userId, status)
+		local player = Players:GetPlayerByUserId(userId)
+		local state = if player then states[player] else nil
+		if state then
+			if status == "Session lost" then
+				state.Ready = false
+				state.SessionLost = true
+				state.Error = "Your save session moved to another server. Please rejoin to protect your progress."
+				state.Brew = nil
+				worldCall("setBrew", player, false)
+			end
+			push(state)
+		end
+	end)
+
+	local function nextOrder(state)
+		local recipe = Economy.recipe(state.Profile, state.SelectedRecipe)
+		if not recipe then
+			recipe = Economy.unlockedRecipes(state.Profile)[1]
+			state.SelectedRecipe = recipe.Id
+		end
+		local vipChance = 0.08 + (state.Profile.Upgrades.decor or 0) * 0.015
+		state.Order = {RecipeId = recipe.Id, Vip = math.random() < vipChance}
+		worldCall("showOrder", state.Player, recipe, state.Order.Vip)
+	end
+
+	local function changed(state, refreshWorld)
+		data:markDirty(state.Player.UserId)
+		leaderstats(state)
+		if refreshWorld then
+			worldCall("refreshPlot", state.Player, state.Profile)
+		end
+	end
+
+	local function checkpoint(state)
+		local now = os.clock()
+		if now - state.LastCheckpoint >= 15 then
+			state.LastCheckpoint = now
+			task.spawn(function()
+				data:save(state.Player.UserId, false)
+			end)
+		end
+	end
+
+	local function expireBrew(state, now)
+		if state.Brew and now > state.Brew.ExpiresAt then
+			state.Brew = nil
+			worldCall("setBrew", state.Player, false)
+			return true
+		end
+		return false
+	end
+
+	local function allowed(state)
+		local now = os.clock()
+		state.Tokens = math.min(8, state.Tokens + (now - state.TokenTime) * 4)
+		state.TokenTime = now
+		if state.Tokens < 1 then
+			return false
+		end
+		state.Tokens -= 1
+		return true
+	end
+
+	local function dispatch(player, action, argument)
+		local state = states[player]
+		if not state or state.Dead or type(action) ~= "string" or #action > 32 or not allowed(state) then
+			return
+		end
+		if not state.Ready then
+			push(state, "Please wait for your café to finish loading.")
+			return
+		end
+		if not data:isWritable(player.UserId) then
+			push(state, "Café actions are paused while the save connection recovers. Your progress is protected.")
+			return
+		end
+		if argument ~= nil and (type(argument) ~= "string" or #argument > 40) then
+			return
+		end
+		local now = workspace:GetServerTimeNow()
+		local epoch = os.time()
+		Economy.rollDaily(state.Profile, epoch)
+		expireBrew(state, now)
+
+		if action == "Brew" then
+			if state.Brew then
+				push(state, "Your espresso is extracting. Serve it when the meter reaches the green zone.")
+				return
+			end
+			local recipe = Economy.recipe(state.Profile, state.Order.RecipeId)
+			if not recipe then
+				nextOrder(state)
+				recipe = Economy.recipe(state.Profile, state.Order.RecipeId)
+			end
+			local ready = now + Economy.brewDuration(state.Profile, recipe)
+			state.Brew = {
+				StartedAt = now,
+				ReadyAt = ready,
+				PerfectUntil = ready + (Config.PerfectWindow or 1.15),
+				ExpiresAt = ready + (Config.ServeWindow or 14),
+			}
+			worldCall("setBrew", player, true)
+			funnel(state, 2, "First shot started")
+			push(state, "Pulling your shot. Serve in the green zone for a perfect bonus!")
+		elseif action == "Serve" then
+			local brew = state.Brew
+			if not brew then
+				push(state, "Start brewing a drink first.")
+				return
+			end
+			if now < brew.ReadyAt then
+				push(state, "Give the espresso a moment to finish extracting.")
+				return
+			end
+			local perfect = now <= brew.PerfectUntil
+			local recipe = Economy.recipe(state.Profile, state.Order.RecipeId)
+			local vip = state.Order.Vip
+			-- Clear before any world callbacks. A repeated remote cannot sell the same shot twice.
+			state.Brew = nil
+			local amount = Economy.recordSale(state.Profile, recipe.Id, perfect, vip, rush.Active, epoch)
+			state.Profile.ManualServed += 1
+			changed(state, false)
+			worldCall("serveCustomer", player, recipe, amount, perfect)
+			worldCall("setBrew", player, false)
+			nextOrder(state)
+			funnel(state, 3, "First drink served")
+			push(state, (if perfect then "Perfect extraction! +" else "Drink served! +") .. Economy.formatMoney(amount))
+		elseif action == "BuyUpgrade" then
+			local success, message = Economy.buyUpgrade(state.Profile, argument, epoch)
+			if success then
+				changed(state, true)
+				state.NextStaffAt = now + Economy.staffInterval(state.Profile)
+				funnel(state, 4, "First upgrade bought")
+				checkpoint(state)
+			end
+			push(state, message)
+		elseif action == "SelectRecipe" then
+			if state.Brew then
+				push(state, "Serve your current drink before changing the menu.")
+				return
+			end
+			local recipe = Economy.recipe(state.Profile, argument)
+			if not recipe then
+				push(state, "Upgrade your menu to unlock that recipe.")
+				return
+			end
+			state.SelectedRecipe = recipe.Id
+			nextOrder(state)
+			push(state, recipe.Name .. " is now your featured drink.")
+		elseif action == "ClaimQuest" then
+			local success, message = Economy.claimQuest(state.Profile, argument, epoch)
+			if success then
+				changed(state, false)
+				checkpoint(state)
+			end
+			push(state, message)
+		elseif action == "ClaimAchievement" then
+			local success, message = Economy.claimAchievement(state.Profile, argument)
+			if success then
+				changed(state, false)
+				checkpoint(state)
+			end
+			push(state, message)
+		elseif action == "SetTheme" then
+			local success, message = Economy.setTheme(state.Profile, argument)
+			if success then
+				changed(state, true)
+				checkpoint(state)
+			end
+			push(state, message)
+		elseif action == "Franchise" then
+			local success, message = Economy.franchise(state.Profile, epoch)
+			if success then
+				state.Brew = nil
+				state.SelectedRecipe = "espresso"
+				state.NextStaffAt = now + Economy.staffInterval(state.Profile)
+				worldCall("setBrew", player, false)
+				changed(state, true)
+				nextOrder(state)
+				state.LastCheckpoint = os.clock()
+				task.spawn(function()
+					data:save(player.UserId, false)
+				end)
+			end
+			push(state, message)
+		end
+	end
+
+	attemptLoad = function(state)
+		if state.Loading or state.Dead or state.Ready or state.SessionLost or stopping then
+			return
+		end
+		state.Loading = true
+		state.LastLoadAttempt = os.clock()
+		state.Error = nil
+		push(state)
+		local profile, failure = data:load(state.Player)
+		state.Loading = false
+		if state.Dead or state.Player.Parent ~= Players or stopping then
+			data:release(state.Player.UserId)
+			return
+		end
+		if not profile then
+			state.Error = failure
+			push(state)
+			return
+		end
+		local success, plotIndex = pcall(world.assignPlot, world, state.Player)
+		if not success or not plotIndex then
+			state.Error = "All cafés are occupied. A plot will be assigned when one opens."
+			data:release(state.Player.UserId)
+			push(state)
+			return
+		end
+		state.Profile = profile
+		state.PlotIndex = plotIndex
+		state.NewPlayer = profile.ManualServed == 0
+		Economy.rollDaily(profile, os.time())
+		local elapsed = math.max(0, os.time() - profile.LastSeen)
+		local offline = Economy.offlineEarnings(profile, elapsed)
+		state.OfflineReward = offline
+		if offline > 0 then
+			profile.Cash += offline
+			profile.LifetimeEarned += offline
+		end
+		state.Ready = true
+		state.Error = nil
+		state.NextStaffAt = workspace:GetServerTimeNow() + Economy.staffInterval(profile)
+		changed(state, true)
+		nextOrder(state)
+		worldCall("spawnPlayer", state.Player)
+		funnel(state, 1, "Cafe ready")
+		push(state, if offline > 0 then "Welcome back! Your baristas earned " .. Economy.formatMoney(offline) .. " while you were away."
+			else "Welcome to your café! Pull a shot, serve a customer, and buy your first upgrade.")
+		if offline > 0 then
+			checkpoint(state)
+		end
+	end
+
+	local function joined(player)
+		if states[player] or stopping then
+			return
+		end
+		local now = workspace:GetServerTimeNow()
+		local state = {
+			Player = player,
+			Ready = false,
+			Loading = false,
+			Dead = false,
+			SessionLost = false,
+			Profile = nil,
+			SelectedRecipe = "espresso",
+			Brew = nil,
+			Order = nil,
+			OfflineReward = 0,
+			Message = nil,
+			Funnel = {},
+			Tokens = 8,
+			TokenTime = os.clock(),
+			LastPush = now,
+			LastLoadAttempt = -100,
+			LastCheckpoint = -100,
+			NextStaffAt = now + 15,
+		}
+		states[player] = state
+		state.CharacterConnection = player.CharacterAdded:Connect(function()
+			if state.Ready and not state.Dead then
+				task.defer(function()
+					if state.Ready and not state.Dead then
+						worldCall("spawnPlayer", player)
+					end
+				end)
+			end
+		end)
+		task.spawn(attemptLoad, state)
+	end
+
+	local function leaving(player)
+		local state = states[player]
+		if not state then
+			return
+		end
+		state.Dead = true
+		state.Ready = false
+		if state.CharacterConnection then
+			state.CharacterConnection:Disconnect()
+		end
+		states[player] = nil
+		worldCall("releasePlot", player)
+		task.spawn(function()
+			data:release(player.UserId)
+		end)
+	end
+
+	actionEvent.OnServerEvent:Connect(dispatch)
+	getState.OnServerInvoke = function(player)
+		local state = states[player]
+		if not state then
+			joined(player)
+			state = states[player]
+		end
+		if not state then
+			return {Ready = false, Error = "Server is closing. Please rejoin.", ServerTime = workspace:GetServerTimeNow()}
+		end
+		if not state.Ready and not state.Loading and not state.SessionLost and os.clock() - state.LastLoadAttempt >= 12 then
+			task.spawn(attemptLoad, state)
+		end
+		return snapshot(state)
+	end
+	worldCall("setHandlers", {
+		Brew = function(player)
+			local state = states[player]
+			local action = if state and state.Brew and workspace:GetServerTimeNow() >= state.Brew.ReadyAt then "Serve" else "Brew"
+			dispatch(player, action)
+		end,
+		BuyUpgrade = function(player, id)
+			dispatch(player, "BuyUpgrade", id)
+		end,
+	})
+	Players.PlayerAdded:Connect(joined)
+	Players.PlayerRemoving:Connect(leaving)
+	for _, player in ipairs(Players:GetPlayers()) do
+		joined(player)
+	end
+
+	task.spawn(function()
+		while not stopping do
+			task.wait(0.2)
+			local now = workspace:GetServerTimeNow()
+			if rush.Active and now >= rush.EndsAt then
+				rush.Active = false
+				rush.NextAt = now + rushInterval
+			elseif not rush.Active and now >= rush.NextAt then
+				rush.Active = true
+				rush.EndsAt = now + rushDuration
+				for _, state in pairs(states) do
+					if state.Ready then
+						push(state, "Coffee rush! Every sale earns a rush bonus for a little while.")
+					end
+				end
+			end
+			for _, state in pairs(states) do
+				if state.Ready and not state.Dead and data:isWritable(state.Player.UserId) then
+					local previousDay = state.Profile.Daily.Day
+					Economy.rollDaily(state.Profile, os.time())
+					if previousDay ~= state.Profile.Daily.Day then
+						changed(state, false)
+					end
+					if expireBrew(state, now) then
+						push(state, "That shot cooled down. Pull another shot to serve this customer.")
+					end
+					if (state.Profile.Upgrades.staff or 0) > 0 and now >= state.NextStaffAt then
+						local unlocked = Economy.unlockedRecipes(state.Profile)
+						local recipe = unlocked[#unlocked]
+						-- Staff run a separate service lane and never consume the manual order or shot.
+						Economy.recordSale(state.Profile, recipe.Id, false, false, rush.Active, os.time())
+						state.NextStaffAt = now + Economy.staffInterval(state.Profile)
+						changed(state, false)
+					elseif (state.Profile.Upgrades.staff or 0) == 0 then
+						state.NextStaffAt = now + Economy.staffInterval(state.Profile)
+					end
+					if now - state.LastPush >= 2 then
+						push(state)
+					end
+				elseif not state.Ready and not state.Loading and not state.SessionLost and not state.Dead
+					and os.clock() - state.LastLoadAttempt >= 12 then
+					task.spawn(attemptLoad, state)
+				end
+			end
+		end
+	end)
+
+	game:BindToClose(function()
+		stopping = true
+		for _, state in pairs(states) do
+			state.Ready = false
+		end
+		data:shutdown()
+	end)
+	return {Data = data, States = states, Dispatch = dispatch}
+end
+
+return GameService
+]]></string>
+        </Properties>
+      </Item>
+      <Item class="Script" referent="12">
+        <Properties>
+          <string name="Name">Main</string>
+          <token name="RunContext">0</token>
+          <string name="Source"><![CDATA[-- World construction and reviewed asset loading are server-only.
+local Assets = require(script.Parent.Assets)
+local World = require(script.Parent.World)
+local GameService = require(script.Parent.GameService)
+
+Assets.preload()
+local world = World.build()
+GameService.start(world)
+]]></string>
+        </Properties>
+      </Item>
+      <Item class="ModuleScript" referent="13">
+        <Properties>
+          <string name="Name">World</string>
+          <string name="Source"><![CDATA[-- The plaza is authored architecture; hero props use the free asset catalog first.
+-- World objects never award money. All prompts call back into GameService.
+local Players = game:GetService("Players")
+local Lighting = game:GetService("Lighting")
+local TweenService = game:GetService("TweenService")
+local Debris = game:GetService("Debris")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+
+local Config = require(ReplicatedStorage:WaitForChild("Shared"):WaitForChild("Config"))
+local Economy = require(ReplicatedStorage.Shared:WaitForChild("Economy"))
+local AssetCatalog = require(ReplicatedStorage.Shared:WaitForChild("AssetCatalog"))
+local Assets = require(script.Parent:WaitForChild("Assets"))
+
+local World = {}
+World.__index = World
+
+local CREAM = Color3.fromRGB(244, 236, 219)
+local SAGE = Color3.fromRGB(100, 126, 107)
+local WOOD = Color3.fromRGB(126, 84, 56)
+local DARK = Color3.fromRGB(47, 43, 38)
+local BRASS = Color3.fromRGB(186, 149, 86)
+local STONE = Color3.fromRGB(190, 182, 164)
+local WHITE = Color3.fromRGB(255, 250, 237)
+
+local function rgb(value, fallback)
+    if typeof(value) == "Color3" then
+        return value
+    end
+    if type(value) == "table" and #value >= 3 then
+        return Color3.fromRGB(value[1], value[2], value[3])
+    end
+    return fallback
+end
+
+local function folder(parent, name)
+    local result = Instance.new("Folder")
+    result.Name = name
+    result.Parent = parent
+    return result
+end
+
+local function part(parent, name, size, transform, color, material, transparency, collide)
+    local result = Instance.new("Part")
+    result.Name = name
+    result.Size = size
+    result.CFrame = transform
+    result.Color = color or CREAM
+    result.Material = material or Enum.Material.SmoothPlastic
+    result.Transparency = transparency or 0
+    result.Anchored = true
+    result.CanCollide = collide ~= false
+    result.CanTouch = false
+    result.TopSurface = Enum.SurfaceType.Smooth
+    result.BottomSurface = Enum.SurfaceType.Smooth
+    result.CastShadow = result.Transparency < 0.6
+    result.Parent = parent
+    return result
+end
+
+local function cylinder(parent, name, diameter, height, transform, color, material)
+    local result = part(parent, name, Vector3.new(height, diameter, diameter), transform * CFrame.Angles(0, 0, math.pi / 2), color, material)
+    result.Shape = Enum.PartType.Cylinder
+    return result
+end
+
+local function ball(parent, name, size, transform, color)
+    local result = part(parent, name, size, transform, color, Enum.Material.SmoothPlastic, 0, false)
+    result.Shape = Enum.PartType.Ball
+    return result
+end
+
+local function billboard(parent, text, size, offset, textColor)
+    local gui = Instance.new("BillboardGui")
+    gui.Name = "Label"
+    gui.Size = UDim2.fromOffset(size.X, size.Y)
+    gui.StudsOffsetWorldSpace = offset or Vector3.new(0, 2, 0)
+    gui.MaxDistance = 110
+    gui.AlwaysOnTop = false
+    gui.LightInfluence = 0
+    gui.Parent = parent
+    local label = Instance.new("TextLabel")
+    label.Name = "Text"
+    label.Size = UDim2.fromScale(1, 1)
+    label.BackgroundColor3 = CREAM
+    label.BackgroundTransparency = 0.05
+    label.TextColor3 = textColor or DARK
+    label.Text = text
+    label.Font = Enum.Font.GothamMedium
+    label.TextScaled = true
+    label.TextWrapped = true
+    label.Parent = gui
+    local corner = Instance.new("UICorner")
+    corner.CornerRadius = UDim.new(0, 9)
+    corner.Parent = label
+    local padding = Instance.new("UIPadding")
+    padding.PaddingLeft = UDim.new(0, 9)
+    padding.PaddingRight = UDim.new(0, 9)
+    padding.PaddingTop = UDim.new(0, 5)
+    padding.PaddingBottom = UDim.new(0, 5)
+    padding.Parent = label
+    return gui, label
+end
+
+local function surfaceText(parent, text, color)
+    local gui = Instance.new("SurfaceGui")
+    gui.Name = "Sign"
+    gui.Face = Enum.NormalId.Front
+    gui.SizingMode = Enum.SurfaceGuiSizingMode.PixelsPerStud
+    gui.PixelsPerStud = 40
+    gui.LightInfluence = 0
+    gui.Parent = parent
+    local label = Instance.new("TextLabel")
+    label.Name = "Text"
+    label.Size = UDim2.fromScale(1, 1)
+    label.BackgroundTransparency = 1
+    label.Text = text
+    label.TextColor3 = color or WHITE
+    label.Font = Enum.Font.GothamBold
+    label.TextScaled = true
+    label.TextWrapped = true
+    label.Parent = gui
+    local padding = Instance.new("UIPadding")
+    padding.PaddingLeft = UDim.new(0, 10)
+    padding.PaddingRight = UDim.new(0, 10)
+    padding.PaddingTop = UDim.new(0, 4)
+    padding.PaddingBottom = UDim.new(0, 4)
+    padding.Parent = label
+    return label
+end
+
+local function prompt(parent, action, object, distance, callback)
+    local result = Instance.new("ProximityPrompt")
+    result.ActionText = action
+    result.ObjectText = object
+    result.MaxActivationDistance = distance or 10
+    result.HoldDuration = 0.15
+    result.RequiresLineOfSight = false
+    result.KeyboardKeyCode = Enum.KeyCode.E
+    result.GamepadKeyCode = Enum.KeyCode.ButtonX
+    result.Parent = parent
+    result.Triggered:Connect(callback)
+    return result
+end
+
+local function accentOf(profile)
+    for _, theme in ipairs(Config.Themes or {}) do
+        if theme.Id == profile.Theme then
+            return rgb(theme.Primary, SAGE), rgb(theme.Accent, BRASS)
+        end
+    end
+    return SAGE, BRASS
+end
+
+local function level(profile, id)
+    return math.max(0, tonumber((profile.Upgrades or {})[id]) or 0)
+end
+
+-- A sourced model's bounding box, rather than its original pivot/scale, determines placement.
+local function placeAsset(parent, key, transform, footprint)
+    local ok, model = pcall(Assets.get, key)
+    if not ok or not model or not model:IsA("Model") then
+        if model and typeof(model) == "Instance" then
+            model:Destroy()
+        end
+        return nil
+    end
+    local success = pcall(function()
+        local _, size = model:GetBoundingBox()
+        if size.X < 0.01 or size.Y < 0.01 or size.Z < 0.01 then
+            error("Empty asset")
+        end
+        local scale = math.min(footprint.X / size.X, footprint.Y / size.Y, footprint.Z / size.Z)
+        model:ScaleTo(model:GetScale() * math.clamp(scale, 0.001, 100))
+        local box, fittedSize = model:GetBoundingBox()
+        local pivotOffset = model:GetPivot():ToObjectSpace(box)
+        model:PivotTo(transform * CFrame.new(0, fittedSize.Y / 2, 0) * pivotOffset:Inverse())
+        model.Name = "Sourced_" .. key
+        model.Parent = parent
+    end)
+    if not success then
+        model:Destroy()
+        return nil
+    end
+    return model
+end
+
+local function fallbackPlant(parent, transform, scale)
+    scale = scale or 1
+    cylinder(parent, "TerracottaPot", 1.6 * scale, 1.4 * scale, transform * CFrame.new(0, 0.7 * scale, 0), Color3.fromRGB(175, 110, 81))
+    part(parent, "Stem", Vector3.new(0.15, 1.8, 0.15) * scale, transform * CFrame.new(0, 1.9 * scale, 0), WOOD, Enum.Material.Wood, 0, false)
+    for index = 1, 5 do
+        local angle = index * math.pi * 0.4
+        local cf = transform * CFrame.new(math.sin(angle) * 0.45 * scale, (2 + (index % 2) * 0.5) * scale, math.cos(angle) * 0.45 * scale) * CFrame.Angles(0.4, angle, 0.5)
+        ball(parent, "Leaf", Vector3.new(0.6, 1.5, 0.28) * scale, cf, SAGE)
+    end
+end
+
+local function makePlant(parent, transform, scale)
+    scale = scale or 1
+    if not placeAsset(parent, "plant", transform, Vector3.new(2.1, 3.5, 2.1) * scale) then
+        fallbackPlant(parent, transform, scale)
+    end
+end
+
+local function fallbackChair(parent, transform, color)
+    part(parent, "ChairSeat", Vector3.new(2.6, 0.35, 2.5), transform * CFrame.new(0, 1.9, 0), color, Enum.Material.Wood)
+    part(parent, "ChairBack", Vector3.new(2.6, 2.1, 0.32), transform * CFrame.new(0, 3, 1.05), color, Enum.Material.Wood)
+    for _, x in ipairs({ -0.95, 0.95 }) do
+        for _, z in ipairs({ -0.9, 0.9 }) do
+            part(parent, "ChairLeg", Vector3.new(0.2, 1.9, 0.2), transform * CFrame.new(x, 0.95, z), DARK, Enum.Material.Metal)
+        end
+    end
+end
+
+local function makeTable(parent, transform, color)
+    -- Catalog's cafe_table is a complete table-and-two-chairs set.
+    local asset = placeAsset(parent, "cafe_table", transform, Vector3.new(8, 4.5, 8))
+    if not asset then
+        cylinder(parent, "RoundCafeTable", 4.8, 0.35, transform * CFrame.new(0, 3.05, 0), WOOD, Enum.Material.Wood)
+        cylinder(parent, "TablePedestal", 0.45, 2.8, transform * CFrame.new(0, 1.5, 0), DARK, Enum.Material.Metal)
+        cylinder(parent, "TableBase", 2.3, 0.2, transform * CFrame.new(0, 0.12, 0), DARK, Enum.Material.Metal)
+        if not placeAsset(parent, "cafe_chair", transform * CFrame.new(0, 0, 4), Vector3.new(2.7, 4, 2.7)) then
+            fallbackChair(parent, transform * CFrame.new(0, 0, 4), color)
+        end
+        if not placeAsset(parent, "cafe_chair", transform * CFrame.new(0, 0, -4) * CFrame.Angles(0, math.pi, 0), Vector3.new(2.7, 4, 2.7)) then
+            fallbackChair(parent, transform * CFrame.new(0, 0, -4) * CFrame.Angles(0, math.pi, 0), color)
+        end
+        if not placeAsset(parent, "coffee_cup", transform * CFrame.new(0.7, 3.25, 0), Vector3.new(0.9, 0.9, 0.9)) then
+            cylinder(parent, "TableCup", 0.5, 0.65, transform * CFrame.new(0.7, 3.5, 0), CREAM)
+        end
+    end
+end
+
+local function espressoFallback(parent, transform, machineLevel, accent)
+    local width = 4.5 + math.min(machineLevel, 4) * 0.3
+    part(parent, "EspressoMachineBody_Fallback", Vector3.new(width, 2.5, 2.2), transform * CFrame.new(0, 1.35, 0), DARK, Enum.Material.Metal)
+    part(parent, "MachineFront", Vector3.new(width - 0.3, 1.6, 0.2), transform * CFrame.new(0, 1.4, -1.16), accent, Enum.Material.Metal)
+    part(parent, "CupWarmingTray", Vector3.new(width + 0.25, 0.15, 2.45), transform * CFrame.new(0, 2.68, 0), STONE, Enum.Material.Metal)
+    part(parent, "DripTray", Vector3.new(width + 0.2, 0.2, 1.5), transform * CFrame.new(0, 0.18, -0.6), Color3.fromRGB(140, 147, 145), Enum.Material.Metal)
+    for _, x in ipairs({ -1.1, 1.1 }) do
+        cylinder(parent, "ExtractionGroup", 0.6, 0.35, transform * CFrame.new(x, 1.05, -1.2), STONE, Enum.Material.Metal)
+        cylinder(parent, "EspressoCup", 0.65, 0.6, transform * CFrame.new(x, 0.55, -1.15), WHITE)
+        local gauge = part(parent, "PressureGauge", Vector3.new(0.55, 0.55, 0.08), transform * CFrame.new(x, 1.95, -1.28), WHITE, Enum.Material.SmoothPlastic)
+        surfaceText(gauge, "•", DARK)
+    end
+    for index = 1, 3 do
+        cylinder(parent, "WarmingCup", 0.55, 0.55, transform * CFrame.new(-1.1 + index * 0.65, 3, 0), CREAM)
+    end
+end
+
+local function createFallbackPerson(parent, transform, shirt, skin)
+    local model = Instance.new("Model")
+    model.Name = "Guest"
+    part(model, "Torso", Vector3.new(1.8, 2.2, 1), CFrame.new(0, 3.2, 0), shirt, nil, 0, false)
+    ball(model, "Head", Vector3.new(1.35, 1.35, 1.35), CFrame.new(0, 5, 0), skin)
+    part(model, "LeftLeg", Vector3.new(0.75, 2.1, 0.8), CFrame.new(-0.48, 1.1, 0), DARK, nil, 0, false)
+    part(model, "RightLeg", Vector3.new(0.75, 2.1, 0.8), CFrame.new(0.48, 1.1, 0), DARK, nil, 0, false)
+    part(model, "LeftArm", Vector3.new(0.6, 2.1, 0.8), CFrame.new(-1.25, 3.2, 0), skin, nil, 0, false)
+    part(model, "RightArm", Vector3.new(0.6, 2.1, 0.8), CFrame.new(1.25, 3.2, 0), skin, nil, 0, false)
+    local root = part(model, "HumanoidRootPart", Vector3.new(1, 1, 1), CFrame.new(0, 3, 0), DARK, nil, 1, false)
+    model.PrimaryPart = root
+    model:PivotTo(transform * CFrame.new(0, 3, 0))
+    model.Parent = parent
+    return model
+end
+
+local function makePerson(self, parent, transform, shirt, vip)
+    local skin = vip and Color3.fromRGB(207, 158, 111) or Color3.fromRGB(222, 181, 145)
+    if self._personTemplate then
+        local model = self._personTemplate:Clone()
+        model.Name = vip and "VIPGuest" or "Guest"
+        for _, item in ipairs(model:GetDescendants()) do
+            if item:IsA("BasePart") then
+                item.Anchored = true
+                item.CanCollide = false
+                item.CanTouch = false
+                if item.Name:find("Torso") then
+                    item.Color = shirt
+                elseif item.Name == "Head" or item.Name:find("Arm") or item.Name:find("Hand") then
+                    item.Color = skin
+                end
+            end
+        end
+        local box, size = model:GetBoundingBox()
+        local offset = model:GetPivot():ToObjectSpace(box)
+        model:PivotTo(transform * CFrame.new(0, size.Y / 2 + 0.05, 0) * offset:Inverse())
+        model.Parent = parent
+        return model
+    end
+    return createFallbackPerson(parent, transform, shirt, skin)
+end
+
+local function tweenModel(model, destination, duration, onDone)
+    local progress = Instance.new("CFrameValue")
+    progress.Value = model:GetPivot()
+    local connection = progress.Changed:Connect(function(value)
+        if model.Parent then
+            model:PivotTo(value)
+        end
+    end)
+    local tween = TweenService:Create(progress, TweenInfo.new(duration, Enum.EasingStyle.Linear), { Value = destination })
+    tween.Completed:Once(function()
+        connection:Disconnect()
+        progress:Destroy()
+        if onDone then
+            onDone()
+        end
+    end)
+    tween:Play()
+    return tween
+end
+
+local function safeName(player)
+    -- DisplayName comes from Roblox identity and contains no RichText parsing here.
+    return player.DisplayName or player.Name
+end
+
+function World.build()
+    local old = workspace:FindFirstChild("EspressoWorld")
+    if old then
+        old:Destroy()
+    end
+    local self = setmetatable({ _plots = {}, _byUser = {}, _handlers = {}, _personTemplate = nil }, World)
+    self.Root = folder(workspace, "EspressoWorld")
+    local environment = folder(self.Root, "Plaza")
+    Lighting.ClockTime = 16.4
+    Lighting.Brightness = 2.3
+    Lighting.Ambient = Color3.fromRGB(134, 130, 119)
+    Lighting.OutdoorAmbient = Color3.fromRGB(163, 159, 145)
+    Lighting.EnvironmentDiffuseScale = 0.8
+    Lighting.EnvironmentSpecularScale = 0.6
+    Lighting.GlobalShadows = true
+    local colorEffect = Lighting:FindFirstChild("EspressoColor") or Instance.new("ColorCorrectionEffect")
+    colorEffect.Name = "EspressoColor"
+    colorEffect.TintColor = Color3.fromRGB(255, 247, 231)
+    colorEffect.Saturation = -0.05
+    colorEffect.Contrast = 0.04
+    colorEffect.Parent = Lighting
+    local bloom = Lighting:FindFirstChild("EspressoBloom") or Instance.new("BloomEffect")
+    bloom.Name = "EspressoBloom"
+    bloom.Intensity = 0.12
+    bloom.Size = 20
+    bloom.Threshold = 1.8
+    bloom.Parent = Lighting
+
+    part(environment, "Ground", Vector3.new(230, 2, 290), CFrame.new(0, -1.2, 0), Color3.fromRGB(137, 153, 119), Enum.Material.Grass)
+    part(environment, "PedestrianPromenade", Vector3.new(44, 0.4, 250), CFrame.new(0, -0.05, 0), STONE, Enum.Material.Limestone)
+    for _, x in ipairs({ -22, 22 }) do
+        part(environment, "StoneBorder", Vector3.new(0.5, 0.55, 250), CFrame.new(x, 0.05, 0), CREAM, Enum.Material.Marble)
+    end
+    -- Broad paving joints provide scale without thousands of decorative parts.
+    for z = -120, 120, 12 do
+        part(environment, "PavingJoint", Vector3.new(43.5, 0.015, 0.08), CFrame.new(0, 0.16, z), Color3.fromRGB(156, 151, 137), Enum.Material.SmoothPlastic, 0, false)
+    end
+    for _, z in ipairs({ -102, -32, 32, 102 }) do
+        for _, x in ipairs({ -18, 18 }) do
+            cylinder(environment, "Planter", 5.5, 1.5, CFrame.new(x, 0.75, z), CREAM, Enum.Material.Concrete)
+            part(environment, "TreeTrunk", Vector3.new(0.75, 7, 0.75), CFrame.new(x, 4.6, z), WOOD, Enum.Material.Wood)
+            ball(environment, "TreeCanopy", Vector3.new(7, 8, 7), CFrame.new(x, 10.5, z), Color3.fromRGB(110, 139, 98))
+            ball(environment, "TreeCanopy", Vector3.new(5.4, 6, 5.5), CFrame.new(x + 1, 12.5, z), Color3.fromRGB(127, 153, 111))
+        end
+    end
+    for _, z in ipairs({ -85, -45, 45, 85 }) do
+        for _, x in ipairs({ -14, 14 }) do
+            cylinder(environment, "StreetLamp", 0.25, 10, CFrame.new(x, 5, z), DARK, Enum.Material.Metal)
+            local lamp = ball(environment, "LampGlobe", Vector3.new(1.8, 1.8, 1.8), CFrame.new(x, 10.4, z), Color3.fromRGB(255, 222, 164))
+            lamp.Material = Enum.Material.Neon
+            local light = Instance.new("PointLight")
+            light.Color = lamp.Color
+            light.Brightness = 1
+            light.Range = 16
+            light.Shadows = false
+            light.Parent = lamp
+        end
+    end
+    local welcome = part(environment, "WelcomeSign", Vector3.new(22, 7, 0.8), CFrame.new(0, 8, -121), SAGE, Enum.Material.Wood)
+    surfaceText(welcome, "ESPRESSO\nTHE CAFÉ QUARTER", WHITE)
+    part(environment, "SignPostLeft", Vector3.new(0.6, 5, 0.6), CFrame.new(-8, 2.5, -121), WOOD, Enum.Material.Wood)
+    part(environment, "SignPostRight", Vector3.new(0.6, 5, 0.6), CFrame.new(8, 2.5, -121), WOOD, Enum.Material.Wood)
+    local spawn = Instance.new("SpawnLocation")
+    spawn.Name = "PlazaSpawn"
+    spawn.Size = Vector3.new(8, 0.3, 8)
+    spawn.CFrame = CFrame.new(0, 0.4, -110)
+    spawn.Transparency = 1
+    spawn.Anchored = true
+    spawn.CanCollide = false
+    spawn.Neutral = true
+    spawn.Duration = 0
+    spawn.Parent = environment
+
+    for index = 1, math.min(Config.MaxPlots or 6, 6) do
+        local side = index <= 3 and -1 or 1
+        local row = (index - 1) % 3
+        local cf = CFrame.new(side * 51, 0, (row - 1) * 63) * CFrame.Angles(0, side == -1 and -math.pi / 2 or math.pi / 2, 0)
+        local plot = {
+            Index = index,
+            Transform = cf,
+            Owner = nil,
+            Root = folder(self.Root, "Cafe" .. tostring(index)),
+            Revision = 0,
+            OrderSerial = 0,
+            Guest = nil,
+            GuestTween = nil,
+        }
+        plot.Structure = folder(plot.Root, "Architecture")
+        plot.Furniture = folder(plot.Root, "Furniture")
+        plot.Customers = folder(plot.Root, "Guests")
+        local p = plot.Structure
+        part(p, "Foundation", Vector3.new(45, 0.8, 44), cf * CFrame.new(0, 0.15, 0), CREAM, Enum.Material.Concrete)
+        part(p, "OakFloor", Vector3.new(42.8, 0.18, 41), cf * CFrame.new(0, 0.65, 0), Color3.fromRGB(160, 124, 88), Enum.Material.WoodPlanks)
+        part(p, "BackWall", Vector3.new(44, 15, 0.8), cf * CFrame.new(0, 8.1, 21), CREAM, Enum.Material.Plaster)
+        for _, x in ipairs({ -21.5, 21.5 }) do
+            part(p, "SideWallBase", Vector3.new(0.7, 3.6, 42), cf * CFrame.new(x, 2.5, 0), CREAM, Enum.Material.Plaster)
+            part(p, "SideWallTop", Vector3.new(0.7, 2.3, 42), cf * CFrame.new(x, 14, 0), CREAM, Enum.Material.Plaster)
+            part(p, "SideGlass", Vector3.new(0.2, 8.4, 39), cf * CFrame.new(x, 8.2, 0), Color3.fromRGB(186, 211, 204), Enum.Material.Glass, 0.72, false)
+            for _, z in ipairs({ -20, -7, 7, 20 }) do
+                part(p, "WindowMullion", Vector3.new(0.9, 12, 0.4), cf * CFrame.new(x, 7.8, z), DARK, Enum.Material.Metal)
+            end
+        end
+        for _, x in ipairs({ -15, 15 }) do
+            part(p, "FrontWindowBase", Vector3.new(13.5, 2.6, 0.7), cf * CFrame.new(x, 2, -20.8), CREAM, Enum.Material.Plaster)
+            part(p, "FrontGlass", Vector3.new(12.6, 7.8, 0.18), cf * CFrame.new(x, 7.2, -20.9), Color3.fromRGB(186, 211, 204), Enum.Material.Glass, 0.72, false)
+            for _, edge in ipairs({ -6.5, 6.5 }) do
+                part(p, "FrontFrame", Vector3.new(0.4, 10.6, 0.65), cf * CFrame.new(x + edge, 6.1, -20.8), DARK, Enum.Material.Metal)
+            end
+        end
+        part(p, "RoofLeft", Vector3.new(6, 0.8, 44), cf * CFrame.new(-19.2, 15.7, 0), DARK, Enum.Material.Slate)
+        part(p, "RoofRight", Vector3.new(6, 0.8, 44), cf * CFrame.new(19.2, 15.7, 0), DARK, Enum.Material.Slate)
+        part(p, "RoofBack", Vector3.new(33, 0.8, 7), cf * CFrame.new(0, 15.7, 18.5), DARK, Enum.Material.Slate)
+        part(p, "Skylight", Vector3.new(32.5, 0.15, 34), cf * CFrame.new(0, 15.5, -1), Color3.fromRGB(180, 209, 206), Enum.Material.Glass, 0.82, false)
+        plot.Fascia = part(p, "CafeFascia", Vector3.new(45, 3.5, 1.2), cf * CFrame.new(0, 13.2, -21), SAGE, Enum.Material.Wood)
+        plot.Sign = surfaceText(plot.Fascia, "ESPRESSO  /  CAFÉ " .. tostring(index), WHITE)
+        part(p, "Awning", Vector3.new(44, 0.3, 5), cf * CFrame.new(0, 11.3, -23) * CFrame.Angles(math.rad(-6), 0, 0), CREAM, Enum.Material.Fabric)
+        part(p, "Terrace", Vector3.new(43, 0.25, 8), cf * CFrame.new(0, 0.23, -25), STONE, Enum.Material.Limestone)
+        local ownerAnchor = part(p, "OwnerSign", Vector3.new(8, 4, 0.45), cf * CFrame.new(-15, 3, -25), DARK, Enum.Material.Wood)
+        plot.OwnerLabel = surfaceText(ownerAnchor, "CAFÉ AVAILABLE\nA new story starts here", WHITE)
+        for _, x in ipairs({ -10, 10 }) do
+            local fixture = part(p, "Pendant", Vector3.new(2, 0.65, 2), cf * CFrame.new(x, 12.8, 1), BRASS, Enum.Material.Metal)
+            part(p, "PendantCable", Vector3.new(0.07, 2.2, 0.07), cf * CFrame.new(x, 14.1, 1), DARK, Enum.Material.Metal, 0, false)
+            local light = Instance.new("PointLight")
+            light.Color = Color3.fromRGB(255, 222, 175)
+            light.Range = 20
+            light.Brightness = 0.8
+            light.Parent = fixture
+        end
+        local board = part(p, "MenuBoard", Vector3.new(18, 5.5, 0.25), cf * CFrame.new(5, 9, 20.4), DARK, Enum.Material.Wood)
+        plot.MenuLabel = surfaceText(board, "FRESHLY PULLED\nESPRESSO  /  MADE WITH CARE", CREAM)
+        self._plots[index] = plot
+        self:_refreshFurniture(plot, Economy.newProfile(os.time()))
+    end
+
+    -- Roblox-provided avatar generation is preferred over handmade character art.
+    -- It runs independently of boot and is optional if platform access is unavailable.
+    task.spawn(function()
+        local description = Instance.new("HumanoidDescription")
+        description.HeadColor = Color3.fromRGB(222, 181, 145)
+        description.LeftArmColor = description.HeadColor
+        description.RightArmColor = description.HeadColor
+        description.TorsoColor = SAGE
+        description.LeftLegColor = DARK
+        description.RightLegColor = DARK
+        description.HeightScale = 0.9
+        description.WidthScale = 0.9
+        description.DepthScale = 0.9
+        local ok, model = pcall(function()
+            return Players:CreateHumanoidModelFromDescriptionAsync(description, Enum.HumanoidRigType.R15)
+        end)
+        description:Destroy()
+        if ok and model then
+            for _, item in ipairs(model:GetDescendants()) do
+                if item:IsA("LuaSourceContainer") then
+                    item:Destroy()
+                elseif item:IsA("BasePart") then
+                    item.Anchored = true
+                    item.CanCollide = false
+                    item.CanTouch = false
+                elseif item:IsA("Humanoid") then
+                    item.DisplayDistanceType = Enum.HumanoidDisplayDistanceType.None
+                    item.HealthDisplayType = Enum.HumanoidHealthDisplayType.AlwaysOff
+                end
+            end
+            if self.Root.Parent then
+                self._personTemplate = model
+                model.Parent = nil
+            else
+                model:Destroy()
+            end
+        end
+    end)
+    return self
+end
+
+function World:_refreshFurniture(plot, profile)
+    plot.Revision += 1
+    plot.Furniture:ClearAllChildren()
+    local p = plot.Furniture
+    local cf = plot.Transform
+    local primary, accent = accentOf(profile)
+    local machineLevel = level(profile, "machine")
+    local seating = level(profile, "seating")
+    local staff = level(profile, "staff")
+    local decor = level(profile, "decor")
+    local bakery = level(profile, "bakery")
+    local expansion = level(profile, "expansion")
+    plot.Fascia.Color = primary
+
+    part(p, "CounterBase", Vector3.new(34, 3.8, 4), cf * CFrame.new(-1, 2.6, 8), primary, Enum.Material.Wood)
+    part(p, "StoneCountertop", Vector3.new(35, 0.4, 4.5), cf * CFrame.new(-1, 4.7, 8), CREAM, Enum.Material.Marble)
+    for x = -16, 14, 2 do
+        part(p, "CounterFluting", Vector3.new(0.16, 3.1, 0.18), cf * CFrame.new(x, 2.6, 5.95), accent, Enum.Material.Wood, 0, false)
+    end
+    part(p, "BackWorktop", Vector3.new(34, 3.6, 2.6), cf * CFrame.new(-1, 2.5, 17.5), WOOD, Enum.Material.Wood)
+    part(p, "BackWorktopStone", Vector3.new(34.5, 0.35, 3), cf * CFrame.new(-1, 4.45, 17.5), CREAM, Enum.Material.Marble)
+    if not placeAsset(p, "espresso_machine", cf * CFrame.new(-8, 4.92, 8), Vector3.new(6.5, 4.2, 3.8)) then
+        espressoFallback(p, cf * CFrame.new(-8, 4.92, 8), machineLevel, accent)
+    end
+    if machineLevel > 0 then
+        local plate = part(p, "MachineTier", Vector3.new(3.6, 0.8, 0.1), cf * CFrame.new(-8, 5.5, 5.65), accent, Enum.Material.Metal, 0, false)
+        surfaceText(plate, "PRECISION / MK " .. tostring(machineLevel + 1), DARK)
+    end
+    local brewAnchor = part(p, "BrewInteraction", Vector3.new(6, 1.5, 3), cf * CFrame.new(-8, 5.5, 5.8), primary, nil, 1, false)
+    plot.BrewPrompt = prompt(brewAnchor, "Pull espresso", "Your espresso station", 10, function(player)
+        if plot.Owner == player and self._handlers.Brew then
+            self._handlers.Brew(player)
+        end
+    end)
+    local steamAnchor = Instance.new("Attachment")
+    steamAnchor.Name = "Steam"
+    steamAnchor.Position = Vector3.new(0, 1.8, 0)
+    steamAnchor.Parent = brewAnchor
+    local steam = Instance.new("ParticleEmitter")
+    steam.Name = "BrewSteam"
+    steam.Texture = "rbxasset://textures/particles/smoke_main.dds"
+    steam.Enabled = plot.Brewing == true
+    steam.Rate = 7
+    steam.Lifetime = NumberRange.new(0.6, 1.2)
+    steam.Speed = NumberRange.new(0.6, 1)
+    steam.Acceleration = Vector3.new(0, 0.6, 0)
+    steam.SpreadAngle = Vector2.new(10, 10)
+    steam.Size = NumberSequence.new({ NumberSequenceKeypoint.new(0, 0.15), NumberSequenceKeypoint.new(1, 0.7) })
+    steam.Transparency = NumberSequence.new({ NumberSequenceKeypoint.new(0, 0.8), NumberSequenceKeypoint.new(1, 1) })
+    steam.Color = ColorSequence.new(CREAM)
+    steam.LightEmission = 0.3
+    steam.Parent = steamAnchor
+    plot.Steam = steam
+    local brewSound = AssetCatalog.Sounds and AssetCatalog.Sounds.Brew
+    if brewSound and brewSound.Id then
+        local sound = Instance.new("Sound")
+        sound.Name = "CoffeeBrewing"
+        sound.SoundId = "rbxassetid://" .. tostring(brewSound.Id)
+        sound.Volume = 0.18
+        sound.Looped = true
+        sound.RollOffMinDistance = 4
+        sound.RollOffMaxDistance = 30
+        sound.Parent = brewAnchor
+        plot.BrewSound = sound
+        if plot.Brewing then
+            sound:Play()
+        end
+    else
+        plot.BrewSound = nil
+    end
+    -- Bean jars make bean-quality purchases legible without an opaque multiplier wall.
+    for index = 1, math.min(1 + level(profile, "beans"), 6) do
+        local x = -14 + index * 2.2
+        cylinder(p, "BeanCanister", 1.25, 1.8, cf * CFrame.new(x, 5.5, 17.5), Color3.fromRGB(102, 72, 47), Enum.Material.Glass)
+        cylinder(p, "CanisterLid", 1.35, 0.15, cf * CFrame.new(x, 6.45, 17.5), accent, Enum.Material.Metal)
+    end
+    local recipes = Economy.unlockedRecipes(profile)
+    local names = {}
+    for _, recipe in ipairs(recipes) do
+        table.insert(names, recipe.Name:upper())
+    end
+    plot.MenuLabel.Text = "TODAY'S MENU\n" .. table.concat(names, "  ·  ")
+
+    makeTable(p, cf * CFrame.new(-13, 0.75, -9), primary)
+    if seating >= 1 then
+        makeTable(p, cf * CFrame.new(12, 0.75, -9), primary)
+    end
+    if seating >= 2 then
+        makeTable(p, cf * CFrame.new(13, 0.75, 0), primary)
+    end
+    if seating >= 3 then
+        makeTable(p, cf * CFrame.new(-13, 0.75, 0), primary)
+    end
+    if seating >= 4 or expansion >= 1 then
+        makeTable(p, cf * CFrame.new(13, 0.36, -25), primary)
+    end
+    if expansion >= 2 then
+        makeTable(p, cf * CFrame.new(-6, 0.36, -25), primary)
+    end
+    if seating >= 5 and expansion < 2 then
+        makeTable(p, cf * CFrame.new(-6, 0.36, -25), primary)
+    end
+    if expansion >= 1 then
+        for _, x in ipairs({ -21, 21 }) do
+            part(p, "TerraceRailing", Vector3.new(0.3, 2.8, 7), cf * CFrame.new(x, 2, -25), primary, Enum.Material.Wood)
+            makePlant(p, cf * CFrame.new(x * 0.9, 0.36, -27), 0.8)
+        end
+        part(p, "TerraceRunner", Vector3.new(12, 0.04, 6.5), cf * CFrame.new(7.5, 0.42, -25), primary, Enum.Material.Fabric, 0, false)
+    end
+    if expansion >= 2 then
+        local canopy = part(p, "TerracePergola", Vector3.new(43, 0.2, 7), cf * CFrame.new(0, 10.7, -25), CREAM, Enum.Material.Fabric, 0.15, false)
+        for _, x in ipairs({ -20, 20 }) do
+            part(p, "PergolaPost", Vector3.new(0.25, 10.3, 0.25), cf * CFrame.new(x, 5.6, -28), accent, Enum.Material.Metal)
+        end
+        canopy:SetAttribute("Upgrade", "expansion")
+    end
+    makePlant(p, cf * CFrame.new(-18.5, 0.75, -17), 1)
+    makePlant(p, cf * CFrame.new(18.5, 0.75, -17), 1)
+    for index = 1, decor do
+        local frame = part(p, "CoffeeArtFrame", Vector3.new(3, 3.8, 0.2), cf * CFrame.new(-16 + (index - 1) * 4, 9, 20.4), accent, Enum.Material.Wood)
+        surfaceText(frame, ({ "BREW\nSLOW", "GOOD\nDAYS", "COFFEE\nFIRST", "STAY\nAWHILE", "FRESH\nDAILY" })[(index - 1) % 5 + 1], CREAM)
+    end
+    if decor >= 2 then
+        makePlant(p, cf * CFrame.new(18, 0.75, 17), 1.4)
+    end
+    if bakery >= 1 then
+        part(p, "PastryDisplay", Vector3.new(6, 1.8, 3), cf * CFrame.new(10, 5.8, 8), Color3.fromRGB(214, 231, 220), Enum.Material.Glass, 0.65, false)
+        part(p, "PastryTray", Vector3.new(5.7, 0.18, 2.8), cf * CFrame.new(10, 4.98, 8), WOOD, Enum.Material.Wood)
+        for index = 1, 3 + bakery do
+            local x = 8 + ((index - 1) % 3) * 1.7
+            local z = 7.3 + math.floor((index - 1) / 3) * 1.3
+            if not placeAsset(p, "pastry", cf * CFrame.new(x, 5.1, z), Vector3.new(1.3, 0.85, 1.05)) then
+                ball(p, "FreshPastry", Vector3.new(1.2, 0.7, 0.8), cf * CFrame.new(x, 5.4, z), Color3.fromRGB(205, 151, 78))
+            end
+        end
+    end
+    for index = 1, staff do
+        local worker = makePerson(self, p, cf * CFrame.new(4 + (index - 1) * 4, 0.75, 12), primary, false)
+        worker.Name = "Barista" .. tostring(index)
+        local head = worker:FindFirstChild("Head", true) or worker.PrimaryPart
+        if head then
+            billboard(head, "BARISTA", Vector2.new(95, 22), Vector3.new(0, 1.5, 0), primary)
+        end
+    end
+
+    -- Upgrade interaction points are deliberately small and sit beside the register.
+    -- The full catalog remains available in the management UI.
+    for index, upgrade in ipairs({ "machine", "menu", "staff" }) do
+        local cost = Economy.upgradeCost(profile, upgrade)
+        local pad = part(p, "Upgrade_" .. upgrade, Vector3.new(2.8, 0.16, 2.1), cf * CFrame.new(-1 + (index - 1) * 4, 4.98, 8), accent, Enum.Material.Metal, 0, false)
+        local label = upgrade == "machine" and "Machine" or (upgrade == "menu" and "Menu" or "Barista")
+        prompt(pad, cost and ("Upgrade · " .. Economy.formatMoney(cost)) or "Fully upgraded", label, 8, function(player)
+            if plot.Owner == player and self._handlers.BuyUpgrade then
+                self._handlers.BuyUpgrade(player, upgrade)
+            end
+        end)
+    end
+end
+
+function World:setHandlers(handlers)
+    self._handlers = handlers or {}
+end
+
+function World:assignPlot(player)
+    local existing = self._byUser[player.UserId]
+    if existing then
+        return existing.Index
+    end
+    for _, plot in ipairs(self._plots) do
+        if not plot.Owner then
+            plot.Owner = player
+            self._byUser[player.UserId] = plot
+            plot.OwnerLabel.Text = safeName(player) .. "'S CAFÉ\nFreshly brewed, always"
+            plot.Sign.Text = "ESPRESSO  /  " .. safeName(player):upper()
+            return plot.Index
+        end
+    end
+    return nil
+end
+
+function World:releasePlot(player)
+    local plot = self._byUser[player.UserId]
+    if not plot then
+        return
+    end
+    self._byUser[player.UserId] = nil
+    plot.Owner = nil
+    plot.OrderSerial += 1
+    if plot.GuestTween then
+        plot.GuestTween:Cancel()
+        plot.GuestTween = nil
+    end
+    plot.Customers:ClearAllChildren()
+    plot.Guest = nil
+    plot.Brewing = false
+    plot.Sign.Text = "ESPRESSO  /  CAFÉ " .. tostring(plot.Index)
+    plot.OwnerLabel.Text = "CAFÉ AVAILABLE\nA new story starts here"
+    self:_refreshFurniture(plot, Economy.newProfile(os.time()))
+end
+
+function World:refreshPlot(player, profile)
+    local plot = self._byUser[player.UserId]
+    if plot then
+        self:_refreshFurniture(plot, profile)
+    end
+end
+
+function World:spawnPlayer(player)
+    local plot = self._byUser[player.UserId]
+    local character = player.Character
+    if not plot or not character then
+        return
+    end
+    local root = character:FindFirstChild("HumanoidRootPart")
+    if not root then
+        root = character:WaitForChild("HumanoidRootPart", 8)
+    end
+    if root and character.Parent and plot.Owner == player then
+        character:PivotTo(plot.Transform * CFrame.new(0, 4.5, -16))
+        root.AssemblyLinearVelocity = Vector3.zero
+        root.AssemblyAngularVelocity = Vector3.zero
+    end
+end
+
+function World:showOrder(player, recipe, vip)
+    local plot = self._byUser[player.UserId]
+    if not plot or not recipe then
+        return
+    end
+    plot.OrderSerial += 1
+    local serial = plot.OrderSerial
+    if plot.GuestTween then
+        plot.GuestTween:Cancel()
+        plot.GuestTween = nil
+    end
+    if plot.Guest then
+        plot.Guest:Destroy()
+    end
+    local start = plot.Transform * CFrame.new(0, 0.75, -18) * CFrame.Angles(0, math.pi, 0)
+    local shirt = vip and BRASS or ({ SAGE, Color3.fromRGB(174, 116, 92), Color3.fromRGB(98, 114, 139), Color3.fromRGB(148, 120, 148) })[math.random(1, 4)]
+    local guest = makePerson(self, plot.Customers, start, shirt, vip)
+    plot.Guest = guest
+    local head = guest:FindFirstChild("Head", true) or guest.PrimaryPart
+    if head then
+        billboard(head, (vip and "VIP · " or "") .. recipe.Name, Vector2.new(165, 38), Vector3.new(0, 2, 0), vip and Color3.fromRGB(131, 91, 24) or DARK)
+    end
+    local from = guest:GetPivot()
+    local destination = from + plot.Transform:VectorToWorldSpace(Vector3.new(0, 0, 20))
+    plot.GuestTween = tweenModel(guest, destination, 2.2, function()
+        if plot.OrderSerial == serial then
+            plot.GuestTween = nil
+        end
+    end)
+end
+
+function World:serveCustomer(player, recipe, amount, perfect)
+    local plot = self._byUser[player.UserId]
+    if not plot then
+        return
+    end
+    local guest = plot.Guest
+    -- Automated sales can arrive without replacing the manually served guest.
+    -- Only animate a departure if an active manual brew has just been cleared.
+    if guest and plot.Brewing then
+        plot.OrderSerial += 1
+        if plot.GuestTween then
+            plot.GuestTween:Cancel()
+            plot.GuestTween = nil
+        end
+        plot.Guest = nil
+        for _, gui in ipairs(guest:GetDescendants()) do
+            if gui:IsA("BillboardGui") then
+                gui:Destroy()
+            end
+        end
+        local from = guest:GetPivot()
+        local exit = from - plot.Transform:VectorToWorldSpace(Vector3.new(0, 0, 22))
+        tweenModel(guest, exit * CFrame.Angles(0, math.pi, 0), 2.1, function()
+            guest:Destroy()
+        end)
+        Debris:AddItem(guest, 3)
+    end
+    local anchor = part(plot.Customers, "SaleFeedback", Vector3.new(0.2, 0.2, 0.2), plot.Transform * CFrame.new(0, 7, 6), CREAM, nil, 1, false)
+    local gui, label = billboard(anchor, (perfect and "PERFECT SHOT  " or "") .. "+" .. Economy.formatMoney(amount), Vector2.new(perfect and 230 or 130, 36), Vector3.zero, SAGE)
+    TweenService:Create(gui, TweenInfo.new(1.5, Enum.EasingStyle.Quad), { StudsOffsetWorldSpace = Vector3.new(0, 2, 0) }):Play()
+    task.delay(0.8, function()
+        if label.Parent then
+            TweenService:Create(label, TweenInfo.new(0.6), { TextTransparency = 1, BackgroundTransparency = 1 }):Play()
+        end
+    end)
+    Debris:AddItem(anchor, 1.6)
+end
+
+function World:setBrew(player, active)
+    local plot = self._byUser[player.UserId]
+    if not plot then
+        return
+    end
+    plot.Brewing = active == true
+    if plot.Steam and plot.Steam.Parent then
+        plot.Steam.Enabled = plot.Brewing
+    end
+    if plot.BrewSound and plot.BrewSound.Parent then
+        if plot.Brewing then
+            plot.BrewSound:Play()
+        else
+            plot.BrewSound:Stop()
+        end
+    end
+    if plot.BrewPrompt and plot.BrewPrompt.Parent then
+        plot.BrewPrompt.ActionText = plot.Brewing and "Serve your shot" or "Pull espresso"
+    end
+end
+
+return World
+]]></string>
+        </Properties>
+      </Item>
+    </Item>
+  </Item>
+  <Item class="SoundService" referent="14">
+    <Properties>
+      <string name="Name">SoundService</string>
+      <bool name="RespectFilteringEnabled">true</bool>
+    </Properties>
+  </Item>
+  <Item class="StarterPlayer" referent="15">
+    <Properties>
+      <string name="Name">StarterPlayer</string>
+      <float name="CameraMaxZoomDistance">90</float>
+      <float name="CameraMinZoomDistance">8</float>
+    </Properties>
+    <Item class="StarterPlayerScripts" referent="16">
+      <Properties>
+        <string name="Name">StarterPlayerScripts</string>
+      </Properties>
+      <Item class="Folder" referent="17">
+        <Properties>
+          <string name="Name">Client</string>
+        </Properties>
+        <Item class="LocalScript" referent="18">
+          <Properties>
+            <string name="Name">Main</string>
+            <string name="Source"><![CDATA[-- Branded, device-adaptive café UI. Progress and all rewards remain server-owned.
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local TweenService = game:GetService("TweenService")
+local RunService = game:GetService("RunService")
+local UserInputService = game:GetService("UserInputService")
+local SoundService = game:GetService("SoundService")
+local ContentProvider = game:GetService("ContentProvider")
+
+local player = Players.LocalPlayer
+local shared = ReplicatedStorage:WaitForChild("Shared")
+local Config = require(shared:WaitForChild("Config"))
+local Economy = require(shared:WaitForChild("Economy"))
+
+local C = {
+	Cream = Color3.fromRGB(249, 245, 235),
+	Paper = Color3.fromRGB(255, 253, 247),
+	Ink = Color3.fromRGB(53, 37, 29),
+	Muted = Color3.fromRGB(128, 116, 99),
+	Line = Color3.fromRGB(225, 216, 198),
+	Sage = Color3.fromRGB(83, 113, 91),
+	SageLight = Color3.fromRGB(225, 235, 220),
+	Gold = Color3.fromRGB(190, 132, 53),
+	GoldLight = Color3.fromRGB(250, 235, 202),
+	Red = Color3.fromRGB(166, 70, 54),
+	Disabled = Color3.fromRGB(235, 229, 216),
+}
+
+local function make(className, properties, parent)
+	local instance = Instance.new(className)
+	for key, value in pairs(properties or {}) do
+		instance[key] = value
+	end
+	instance.Parent = parent
+	return instance
+end
+
+local function corner(instance, radius)
+	make("UICorner", { CornerRadius = UDim.new(0, radius or 14) }, instance)
+end
+
+local function outline(instance, color)
+	return make("UIStroke", { Color = color or C.Line, Thickness = 1, Transparency = 0.15 }, instance)
+end
+
+local function label(parent, value, size, position, dimensions, color, bold)
+	return make("TextLabel", {
+		BackgroundTransparency = 1,
+		Text = value,
+		TextColor3 = color or C.Ink,
+		TextSize = size,
+		Font = bold and Enum.Font.GothamBold or Enum.Font.GothamMedium,
+		TextXAlignment = Enum.TextXAlignment.Left,
+		TextYAlignment = Enum.TextYAlignment.Center,
+		Position = position,
+		Size = dimensions,
+		TextTruncate = Enum.TextTruncate.AtEnd,
+	}, parent)
+end
+
+local selectionOrder = 0
+local playUiClick = function() end
+local function button(parent, title, position, dimensions, callback, color)
+	selectionOrder += 1
+	local baseColor = color or C.Sage
+	local object = make("TextButton", {
+		Text = title,
+		Font = Enum.Font.GothamBold,
+		TextSize = 12,
+		TextColor3 = C.Paper,
+		BackgroundColor3 = baseColor,
+		AutoButtonColor = false,
+		BorderSizePixel = 0,
+		Position = position,
+		Size = dimensions,
+		Selectable = true,
+		SelectionOrder = selectionOrder,
+	}, parent)
+	corner(object, 10)
+	object:SetAttribute("BaseColor", baseColor)
+	object:SetAttribute("Enabled", true)
+	object.Activated:Connect(function()
+		if object:GetAttribute("Enabled") then
+			playUiClick()
+			callback()
+		end
+	end)
+	object.MouseEnter:Connect(function()
+		if object:GetAttribute("Enabled") then
+			local current = object:GetAttribute("BaseColor")
+			TweenService:Create(object, TweenInfo.new(0.12), { BackgroundColor3 = current:Lerp(C.Ink, 0.09) }):Play()
+		end
+	end)
+	object.MouseLeave:Connect(function()
+		if object:GetAttribute("Enabled") then
+			TweenService:Create(object, TweenInfo.new(0.12), { BackgroundColor3 = object:GetAttribute("BaseColor") }):Play()
+		end
+	end)
+	return object
+end
+
+local function enableButton(object, enabled, title, color)
+	local baseColor = color or C.Sage
+	object:SetAttribute("Enabled", enabled)
+	object:SetAttribute("BaseColor", baseColor)
+	object.BackgroundColor3 = enabled and baseColor or C.Disabled
+	object.TextColor3 = enabled and C.Paper or C.Muted
+	object.Selectable = enabled
+	if title then
+		object.Text = title
+	end
+end
+
+local function text(object, value)
+	if object.Text ~= value then
+		object.Text = value
+	end
+end
+
+local function money(amount)
+	return Economy.formatMoney(amount or 0)
+end
+
+local function count(amount)
+	return (string.gsub(Economy.formatMoney(amount or 0), "^%$", ""))
+end
+
+local function duration(seconds)
+	seconds = math.max(0, math.floor(seconds))
+	if seconds >= 3600 then
+		return string.format("%dh %02dm", math.floor(seconds / 3600), math.floor(seconds % 3600 / 60))
+	end
+	return string.format("%dm %02ds", math.floor(seconds / 60), seconds % 60)
+end
+
+local function recipeById(id)
+	for _, recipe in ipairs(Config.Recipes) do
+		if recipe.Id == id then
+			return recipe
+		end
+	end
+	return Config.Recipes[1]
+end
+
+local screen = make("ScreenGui", {
+	Name = "EspressoCafeUI",
+	ResetOnSpawn = false,
+	IgnoreGuiInset = false,
+	DisplayOrder = 10,
+	ZIndexBehavior = Enum.ZIndexBehavior.Sibling,
+}, player:WaitForChild("PlayerGui"))
+
+local root = make("Frame", { Name = "Root", Size = UDim2.fromScale(1, 1), BackgroundTransparency = 1 }, screen)
+local snapshot = nil
+local actionRemote = nil
+local manageOpen = false
+local currentTab = "Upgrades"
+local lastAction = 0
+local previousMessage = ""
+local offlineShown = false
+local toastGeneration = 0
+local lastCash = nil
+local sessionOnlyShown = false
+
+local toast = make("Frame", {
+	AnchorPoint = Vector2.new(0.5, 0), Position = UDim2.new(0.5, 0, 0, 108),
+	Size = UDim2.new(1, -40, 0, 52), BackgroundColor3 = C.Ink,
+	BackgroundTransparency = 0.03, BorderSizePixel = 0, Visible = false, ZIndex = 55,
+}, root)
+make("UISizeConstraint", { MaxSize = Vector2.new(480, 70) }, toast)
+corner(toast, 12)
+local toastText = label(toast, "", 12, UDim2.fromOffset(16, 4), UDim2.new(1, -32, 1, -8), C.Paper, true)
+toastText.TextWrapped = true
+toastText.TextTruncate = Enum.TextTruncate.None
+toastText.ZIndex = 56
+
+local function notify(message, seconds)
+	toastGeneration += 1
+	local generation = toastGeneration
+	toastText.Text = tostring(message)
+	toast.Visible = true
+	toast.BackgroundTransparency = 0.03
+	toastText.TextTransparency = 0
+	task.delay(seconds or 4, function()
+		if generation ~= toastGeneration then return end
+		TweenService:Create(toast, TweenInfo.new(0.3), { BackgroundTransparency = 1 }):Play()
+		TweenService:Create(toastText, TweenInfo.new(0.3), { TextTransparency = 1 }):Play()
+		task.delay(0.3, function()
+			if generation == toastGeneration then toast.Visible = false end
+		end)
+	end)
+end
+
+local function send(action, argument)
+	if not snapshot or not snapshot.Ready or not actionRemote then
+		notify("Your café is still loading. Please wait.")
+		return
+	end
+	if os.clock() - lastAction < 0.12 then return end
+	lastAction = os.clock()
+	actionRemote:FireServer(action, argument)
+end
+
+-- Compact bank / navigation bar leaves the café itself visible.
+local header = make("Frame", {
+	Position = UDim2.fromOffset(16, 12), Size = UDim2.new(1, -32, 0, 78),
+	BackgroundColor3 = C.Cream, BackgroundTransparency = 0.03, BorderSizePixel = 0,
+}, root)
+corner(header, 16)
+outline(header)
+local brand = label(header, "ESPRESSO", 24, UDim2.fromOffset(18, 9), UDim2.fromOffset(190, 28), C.Ink, true)
+local brandSub = label(header, "YOUR LITTLE COFFEE EMPIRE", 9, UDim2.fromOffset(19, 36), UDim2.fromOffset(225, 15), C.Muted, true)
+local saveStatus = label(header, "Connecting to your café…", 10, UDim2.fromOffset(19, 55), UDim2.new(1, -40, 0, 14), C.Muted)
+local bank = label(header, "$—", 25, UDim2.new(1, -336, 0, 10), UDim2.fromOffset(168, 30), C.Sage, true)
+bank.Name = "Cash"
+bank.TextXAlignment = Enum.TextXAlignment.Right
+local statsLine = label(header, "0 customers served", 10, UDim2.new(1, -336, 0, 43), UDim2.fromOffset(168, 16), C.Muted)
+statsLine.TextXAlignment = Enum.TextXAlignment.Right
+local openManage
+local manageButton = button(header, "MANAGE CAFÉ", UDim2.new(1, -150, 0, 18), UDim2.fromOffset(132, 42), function()
+	if openManage then openManage("Upgrades") end
+end)
+manageButton.Name = "ManageCafe"
+
+local tutorial = make("Frame", {
+	Position = UDim2.fromOffset(16, 104), Size = UDim2.fromOffset(254, 116),
+	BackgroundColor3 = C.Cream, BorderSizePixel = 0,
+}, root)
+corner(tutorial, 14)
+outline(tutorial)
+label(tutorial, "A SMALL START. A BIG DREAM.", 9, UDim2.fromOffset(15, 10), UDim2.new(1, -30, 0, 16), C.Sage, true)
+local tutorialTitle = label(tutorial, "Make your first espresso", 15, UDim2.fromOffset(15, 30), UDim2.new(1, -30, 0, 22), C.Ink, true)
+local tutorialDescription = label(tutorial, "Press BREW. Serve when the meter turns green for a perfect shot.", 11,
+	UDim2.fromOffset(15, 56), UDim2.new(1, -30, 0, 45), C.Muted)
+tutorialDescription.TextWrapped = true
+tutorialDescription.TextTruncate = Enum.TextTruncate.None
+tutorialDescription.TextYAlignment = Enum.TextYAlignment.Top
+
+local rushPill = make("Frame", {
+	AnchorPoint = Vector2.new(1, 0), Position = UDim2.new(1, -16, 0, 104),
+	Size = UDim2.fromOffset(210, 38), BackgroundColor3 = C.GoldLight, BorderSizePixel = 0,
+}, root)
+corner(rushPill, 11)
+local rushLabel = label(rushPill, "Next rush · —", 11, UDim2.fromOffset(12, 0), UDim2.new(1, -24, 1, 0), C.Ink, true)
+rushLabel.TextXAlignment = Enum.TextXAlignment.Center
+
+-- One clear active task: pull and serve the current customer's drink.
+local orderCard = make("Frame", {
+	Name = "CurrentOrder", AnchorPoint = Vector2.new(0.5, 1), Position = UDim2.new(0.5, 0, 1, -20),
+	Size = UDim2.new(1, -32, 0, 210), BackgroundColor3 = C.Cream, BorderSizePixel = 0,
+}, root)
+make("UISizeConstraint", { MaxSize = Vector2.new(460, 230) }, orderCard)
+corner(orderCard, 18)
+outline(orderCard)
+local orderEyebrow = label(orderCard, "AT YOUR COUNTER", 9, UDim2.fromOffset(20, 14), UDim2.new(1, -40, 0, 16), C.Muted, true)
+local orderName = label(orderCard, "Espresso", 28, UDim2.fromOffset(20, 34), UDim2.new(1, -155, 0, 36), C.Ink, true)
+orderName.Name = "DrinkName"
+local orderValue = label(orderCard, "$—", 22, UDim2.new(1, -130, 0, 36), UDim2.fromOffset(110, 30), C.Sage, true)
+orderValue.Name = "SaleValue"
+orderValue.TextXAlignment = Enum.TextXAlignment.Right
+local orderHint = label(orderCard, "Your customer is ready. Pull a fresh shot.", 11, UDim2.fromOffset(20, 74), UDim2.new(1, -40, 0, 26), C.Muted)
+orderHint.TextWrapped = true
+orderHint.TextTruncate = Enum.TextTruncate.None
+local meterTrack = make("Frame", {
+	Position = UDim2.fromOffset(20, 110), Size = UDim2.new(1, -40, 0, 10),
+	BackgroundColor3 = C.Disabled, BorderSizePixel = 0, ClipsDescendants = true,
+}, orderCard)
+corner(meterTrack, 5)
+local meterFill = make("Frame", { Size = UDim2.fromScale(0, 1), BackgroundColor3 = C.Sage, BorderSizePixel = 0 }, meterTrack)
+corner(meterFill, 5)
+local meterCaption = label(orderCard, "A perfect extraction earns a bigger tip", 10, UDim2.fromOffset(20, 124), UDim2.new(1, -40, 0, 18), C.Muted)
+local brewButton = button(orderCard, "BREW ESPRESSO", UDim2.fromOffset(20, 154), UDim2.new(1, -40, 0, 40), function()
+	if snapshot and snapshot.Brew then
+		local now = workspace:GetServerTimeNow()
+		if now >= snapshot.Brew.ReadyAt and now <= snapshot.Brew.ExpiresAt then
+			send("Serve")
+		elseif now > snapshot.Brew.ExpiresAt then
+			send("Brew")
+		end
+	else
+		send("Brew")
+	end
+end)
+brewButton.Name = "BrewAction"
+
+-- The shop uses stable rows. State updates never reset a player's scroll position.
+local backdrop = make("TextButton", {
+	Name = "ManageBackdrop", Size = UDim2.fromScale(1, 1), BackgroundColor3 = C.Ink,
+	BackgroundTransparency = 0.4, BorderSizePixel = 0, Text = "", AutoButtonColor = false,
+	Visible = false, ZIndex = 30, Selectable = false,
+}, root)
+local panel = make("Frame", {
+	Name = "ManagePanel",
+	AnchorPoint = Vector2.new(0.5, 0.5), Position = UDim2.fromScale(0.5, 0.5),
+	Size = UDim2.new(1, -32, 1, -40), BackgroundColor3 = C.Cream, BorderSizePixel = 0, ZIndex = 31,
+	Active = true,
+}, root)
+panel.Visible = false
+make("UISizeConstraint", { MaxSize = Vector2.new(730, 640) }, panel)
+corner(panel, 18)
+outline(panel)
+label(panel, "YOUR COFFEE HOUSE", 10, UDim2.fromOffset(22, 17), UDim2.new(1, -90, 0, 16), C.Sage, true).ZIndex = 32
+local panelTitle = label(panel, "A little better, every cup.", 23, UDim2.fromOffset(22, 35), UDim2.new(1, -90, 0, 34), C.Ink, true)
+panelTitle.ZIndex = 32
+local closeManage
+local closeButton = button(panel, "X", UDim2.new(1, -58, 0, 20), UDim2.fromOffset(38, 38), function()
+	if closeManage then closeManage() end
+end, C.Ink)
+closeButton.ZIndex = 33
+
+local tabStrip = make("ScrollingFrame", {
+	Position = UDim2.fromOffset(20, 82), Size = UDim2.new(1, -40, 0, 44),
+	BackgroundTransparency = 1, BorderSizePixel = 0, ScrollBarThickness = 0,
+	ScrollingDirection = Enum.ScrollingDirection.X, CanvasSize = UDim2.fromOffset(620, 0), ZIndex = 32,
+}, panel)
+make("UIListLayout", { FillDirection = Enum.FillDirection.Horizontal, Padding = UDim.new(0, 7), SortOrder = Enum.SortOrder.LayoutOrder }, tabStrip)
+local pages = {}
+local tabButtons = {}
+local tabNames = { "Upgrades", "Menu", "Goals", "Style", "Neighbors" }
+local tabWidths = { Upgrades = 109, Menu = 86, Goals = 86, Style = 86, Neighbors = 118 }
+for index, name in ipairs(tabNames) do
+	local tabButton = button(tabStrip, string.upper(name), UDim2.new(), UDim2.fromOffset(tabWidths[name], 38), function()
+		if openManage then openManage(name) end
+	end, C.Ink)
+	tabButton.LayoutOrder = index
+	tabButton.Name = "Tab_" .. name
+	tabButton.ZIndex = 33
+	tabButtons[name] = tabButton
+	local page = make("ScrollingFrame", {
+		Name = name, Position = UDim2.fromOffset(20, 140), Size = UDim2.new(1, -40, 1, -158),
+		BackgroundTransparency = 1, BorderSizePixel = 0, ScrollBarThickness = 3,
+		ScrollBarImageColor3 = C.Muted, ScrollingDirection = Enum.ScrollingDirection.Y,
+		AutomaticCanvasSize = Enum.AutomaticSize.Y, CanvasSize = UDim2.new(),
+		Visible = false, ZIndex = 32,
+	}, panel)
+	make("UIPadding", { PaddingRight = UDim.new(0, 7), PaddingBottom = UDim.new(0, 12) }, page)
+	make("UIListLayout", { Padding = UDim.new(0, 10), SortOrder = Enum.SortOrder.LayoutOrder }, page)
+	pages[name] = page
+end
+
+local function paintTabs()
+	for name, page in pairs(pages) do
+		page.Visible = name == currentTab
+		local selected = name == currentTab
+		enableButton(tabButtons[name], true, nil, selected and C.Sage or C.Disabled)
+		tabButtons[name].TextColor3 = selected and C.Paper or C.Ink
+	end
+end
+
+openManage = function(tab)
+	currentTab = tab or currentTab
+	manageOpen = true
+	panel.Visible = true
+	backdrop.Visible = true
+	orderCard.Visible = root.AbsoluteSize.Y >= 450
+	paintTabs()
+end
+closeManage = function()
+	manageOpen = false
+	panel.Visible = false
+	backdrop.Visible = false
+	orderCard.Visible = true
+end
+backdrop.Activated:Connect(closeManage)
+
+local rowNumber = 0
+local function row(parent, height)
+	rowNumber += 1
+	local object = make("Frame", {
+		Size = UDim2.new(1, 0, 0, height), BackgroundColor3 = C.Paper,
+		BorderSizePixel = 0, LayoutOrder = rowNumber, ZIndex = 33,
+	}, parent)
+	corner(object, 12)
+	outline(object)
+	return object
+end
+
+local function rowLabel(parent, value, size, position, dimensions, color, bold)
+	local object = label(parent, value, size, position, dimensions, color, bold)
+	object.ZIndex = 34
+	return object
+end
+
+local function section(parent, title, detail)
+	local object = row(parent, detail and 64 or 36)
+	object.BackgroundTransparency = 1
+	object:FindFirstChildOfClass("UIStroke").Transparency = 1
+	rowLabel(object, title, 16, UDim2.fromOffset(0, 0), UDim2.new(1, -8, 0, 24), C.Ink, true)
+	if detail then
+		local sub = rowLabel(object, detail, 11, UDim2.fromOffset(0, 28), UDim2.new(1, -8, 0, 32), C.Muted)
+		sub.TextWrapped = true
+		sub.TextTruncate = Enum.TextTruncate.None
+		sub.TextYAlignment = Enum.TextYAlignment.Top
+	end
+	return object
+end
+
+local upgradeRows = {}
+section(pages.Upgrades, "Grow at your own pace.", "Every upgrade is bought with café cash. Furniture and equipment grow with your café.")
+for _, upgrade in ipairs(Config.Upgrades) do
+	local object = row(pages.Upgrades, 126)
+	object.Name = "Upgrade_" .. upgrade.Id
+	rowLabel(object, upgrade.Name, 15, UDim2.fromOffset(14, 11), UDim2.new(1, -95, 0, 24), C.Ink, true)
+	local level = rowLabel(object, "0 / " .. upgrade.MaxLevel, 11, UDim2.new(1, -82, 0, 13), UDim2.fromOffset(66, 20), C.Sage, true)
+	level.TextXAlignment = Enum.TextXAlignment.Right
+	local description = rowLabel(object, upgrade.Description, 11, UDim2.fromOffset(14, 40), UDim2.new(1, -28, 0, 34), C.Muted)
+	description.TextWrapped = true
+	description.TextTruncate = Enum.TextTruncate.None
+	description.TextYAlignment = Enum.TextYAlignment.Top
+	local buy = button(object, "BUY", UDim2.new(1, -140, 0, 79), UDim2.fromOffset(126, 34), function()
+		send("BuyUpgrade", upgrade.Id)
+	end)
+	buy.ZIndex = 34
+	buy.Name = "Buy"
+	local benefit = rowLabel(object, "Café cash upgrade", 10, UDim2.fromOffset(14, 84), UDim2.new(1, -165, 0, 24), C.Muted)
+	upgradeRows[upgrade.Id] = { Level = level, Buy = buy, Benefit = benefit, Config = upgrade }
+end
+
+local recipeRows = {}
+section(pages.Menu, "What are you brewing?", "Choose your next order. Unlock new drinks with the menu upgrade; finish your current shot before switching.")
+for _, recipe in ipairs(Config.Recipes) do
+	local object = row(pages.Menu, 108)
+	local color = recipe.Color or { 126, 88, 61 }
+	local swatch = make("Frame", { Position = UDim2.fromOffset(14, 15), Size = UDim2.fromOffset(9, 32), BackgroundColor3 = Color3.fromRGB(color[1], color[2], color[3]), BorderSizePixel = 0, ZIndex = 34 }, object)
+	corner(swatch, 4)
+	rowLabel(object, recipe.Name, 15, UDim2.fromOffset(34, 12), UDim2.new(1, -50, 0, 24), C.Ink, true)
+	local info = rowLabel(object, "", 11, UDim2.fromOffset(34, 40), UDim2.new(1, -50, 0, 20), C.Muted)
+	local choose = button(object, "SELECT", UDim2.new(1, -140, 0, 66), UDim2.fromOffset(126, 30), function()
+		send("SelectRecipe", recipe.Id)
+	end)
+	choose.ZIndex = 34
+	local status = rowLabel(object, "", 10, UDim2.fromOffset(14, 69), UDim2.new(1, -165, 0, 20), C.Muted)
+	recipeRows[recipe.Id] = { Config = recipe, Info = info, Choose = choose, Status = status }
+end
+
+local resetLabel
+section(pages.Goals, "A fresh reason to brew.", "Daily goals reset at 00:00 UTC. Missing a day never removes your café progress.")
+local resetRow = row(pages.Goals, 32)
+resetRow.BackgroundColor3 = C.SageLight
+resetLabel = rowLabel(resetRow, "Daily reset in —", 10, UDim2.fromOffset(12, 0), UDim2.new(1, -24, 1, 0), C.Sage, true)
+local questRows = {}
+local achievementRows = {}
+
+local function progressRow(parent, item, action)
+	local object = row(parent, 112)
+	object.Name = "Goal_" .. item.Id
+	rowLabel(object, item.Name, 14, UDim2.fromOffset(14, 10), UDim2.new(1, -28, 0, 25), C.Ink, true)
+	local progress = rowLabel(object, "0 / " .. item.Target, 11, UDim2.fromOffset(14, 39), UDim2.new(1, -155, 0, 21), C.Muted)
+	local reward = rowLabel(object, "+" .. money(item.Reward), 11, UDim2.new(1, -140, 0, 39), UDim2.fromOffset(126, 21), C.Sage, true)
+	reward.TextXAlignment = Enum.TextXAlignment.Right
+	local track = make("Frame", { Position = UDim2.fromOffset(14, 82), Size = UDim2.new(1, -169, 0, 7), BackgroundColor3 = C.Disabled, BorderSizePixel = 0, ZIndex = 34 }, object)
+	corner(track, 4)
+	local fill = make("Frame", { Size = UDim2.fromScale(0, 1), BackgroundColor3 = C.Sage, BorderSizePixel = 0, ZIndex = 35 }, track)
+	corner(fill, 4)
+	local claim = button(object, "CLAIM", UDim2.new(1, -140, 0, 70), UDim2.fromOffset(126, 30), function()
+		send(action, item.Id)
+	end)
+	claim.ZIndex = 34
+	claim.Name = "Claim"
+	return { Config = item, Progress = progress, Fill = fill, Claim = claim }
+end
+
+for _, quest in ipairs(Config.Quests) do
+	questRows[quest.Id] = progressRow(pages.Goals, quest, "ClaimQuest")
+end
+section(pages.Goals, "Lifetime milestones", "These rewards never reset when you open a new franchise.")
+for _, achievement in ipairs(Config.Achievements) do
+	achievementRows[achievement.Id] = progressRow(pages.Goals, achievement, "ClaimAchievement")
+end
+
+section(pages.Style, "Make the place your own.", "Switch café palettes for free. Franchise milestones unlock more styles.")
+local themeRows = {}
+for _, theme in ipairs(Config.Themes) do
+	local object = row(pages.Style, 96)
+	local palette = theme.Primary or { 83, 113, 91 }
+	local swatch = make("Frame", { Position = UDim2.fromOffset(14, 14), Size = UDim2.fromOffset(34, 34), BackgroundColor3 = Color3.fromRGB(palette[1], palette[2], palette[3]), BorderSizePixel = 0, ZIndex = 34 }, object)
+	corner(swatch, 9)
+	rowLabel(object, theme.Name, 15, UDim2.fromOffset(60, 14), UDim2.new(1, -75, 0, 26), C.Ink, true)
+	local requirement = rowLabel(object, "", 10, UDim2.fromOffset(14, 58), UDim2.new(1, -165, 0, 22), C.Muted)
+	local choose = button(object, "APPLY", UDim2.new(1, -140, 0, 54), UDim2.fromOffset(126, 30), function()
+		send("SetTheme", theme.Id)
+	end)
+	choose.ZIndex = 34
+	themeRows[theme.Id] = { Config = theme, Choose = choose, Requirement = requirement }
+end
+
+section(pages.Style, "The next chapter", "An optional franchise starts a new café run and adds +20% permanent service income. Lifetime milestones stay.")
+local franchiseCard = row(pages.Style, 164)
+local franchiseHeading = rowLabel(franchiseCard, "FRANCHISE 01", 14, UDim2.fromOffset(14, 12), UDim2.new(1, -28, 0, 26), C.Ink, true)
+local franchiseDescription = rowLabel(franchiseCard, "", 11, UDim2.fromOffset(14, 46), UDim2.new(1, -28, 0, 58), C.Muted)
+franchiseDescription.TextWrapped = true
+franchiseDescription.TextYAlignment = Enum.TextYAlignment.Top
+franchiseDescription.TextTruncate = Enum.TextTruncate.None
+local confirmFranchise
+local franchiseButton = button(franchiseCard, "OPEN FRANCHISE", UDim2.fromOffset(14, 116), UDim2.new(1, -28, 0, 34), function()
+	if confirmFranchise then confirmFranchise() end
+end, C.Ink)
+franchiseButton.ZIndex = 34
+franchiseButton.Name = "FranchiseAction"
+
+section(pages.Style, "Set the mood.", "Background music is optional and starts only when you choose to play.")
+local audioCard = row(pages.Style, 112)
+local musicName = rowLabel(audioCard, "Café soundtrack", 14, UDim2.fromOffset(14, 10), UDim2.new(1, -28, 0, 25), C.Ink, true)
+local musicStatus = rowLabel(audioCard, "Finding your soundtrack…", 10, UDim2.fromOffset(14, 40), UDim2.new(1, -28, 0, 20), C.Muted)
+local toggleMusic = function() end
+local musicButton = button(audioCard, "MUSIC OFF", UDim2.new(1, -150, 0, 70), UDim2.fromOffset(136, 30), function()
+	toggleMusic()
+end, C.Ink)
+musicButton.ZIndex = 34
+musicButton.Name = "MusicToggle"
+enableButton(musicButton, false, "MUSIC OFF", C.Ink)
+
+section(pages.Neighbors, "Good coffee brings people together.", "Visit the other cafés around the plaza. These are the players and lifetime customers in this server.")
+local neighborsContainer = row(pages.Neighbors, 360)
+neighborsContainer.BackgroundTransparency = 1
+neighborsContainer:FindFirstChildOfClass("UIStroke").Transparency = 1
+make("UIListLayout", { Padding = UDim.new(0, 8), SortOrder = Enum.SortOrder.LayoutOrder }, neighborsContainer)
+local neighborRows = {}
+for index = 1, math.max(6, Config.MaxPlots or 6) do
+	local object = make("Frame", { Size = UDim2.new(1, 0, 0, 50), BackgroundColor3 = C.Paper, BorderSizePixel = 0, LayoutOrder = index, ZIndex = 34, Visible = false }, neighborsContainer)
+	corner(object, 12)
+	local name = rowLabel(object, "", 12, UDim2.fromOffset(14, 6), UDim2.new(1, -115, 0, 22), C.Ink, true)
+	local detail = rowLabel(object, "", 9, UDim2.fromOffset(14, 29), UDim2.new(1, -115, 0, 14), C.Muted)
+	local served = rowLabel(object, "", 13, UDim2.new(1, -98, 0, 0), UDim2.fromOffset(82, 50), C.Sage, true)
+	served.TextXAlignment = Enum.TextXAlignment.Right
+	neighborRows[index] = { Root = object, Name = name, Detail = detail, Served = served }
+end
+
+-- Explicit reset confirmation; accidental taps never erase an active café.
+local confirmOverlay = make("Frame", { Size = UDim2.fromScale(1, 1), BackgroundColor3 = C.Ink, BackgroundTransparency = 0.3, BorderSizePixel = 0, Visible = false, Active = true, ZIndex = 50 }, root)
+confirmOverlay.Name = "FranchiseConfirmation"
+local confirmCard = make("Frame", { AnchorPoint = Vector2.new(0.5, 0.5), Position = UDim2.fromScale(0.5, 0.5), Size = UDim2.new(1, -40, 0, 292), BackgroundColor3 = C.Cream, BorderSizePixel = 0, ZIndex = 51 }, confirmOverlay)
+make("UISizeConstraint", { MaxSize = Vector2.new(430, 310) }, confirmCard)
+corner(confirmCard, 18)
+local confirmTitle = label(confirmCard, "A new café. A new chapter.", 20, UDim2.fromOffset(20, 18), UDim2.new(1, -40, 0, 42), C.Ink, true)
+confirmTitle.ZIndex = 52
+local confirmBody = label(confirmCard, "Your cash and café upgrades will reset. Your franchises, lifetime statistics and claimed milestones stay. This cannot be undone.", 12, UDim2.fromOffset(20, 70), UDim2.new(1, -40, 0, 104), C.Muted)
+confirmBody.ZIndex = 52
+confirmBody.TextWrapped = true
+confirmBody.TextTruncate = Enum.TextTruncate.None
+confirmBody.TextYAlignment = Enum.TextYAlignment.Top
+local cancelFranchise = button(confirmCard, "KEEP MY CAFÉ", UDim2.fromOffset(20, 184), UDim2.new(1, -40, 0, 38), function()
+	confirmOverlay.Visible = false
+end)
+cancelFranchise.ZIndex = 52
+cancelFranchise.Name = "CancelFranchise"
+local acceptFranchise = button(confirmCard, "CONFIRM NEW FRANCHISE", UDim2.fromOffset(20, 232), UDim2.new(1, -40, 0, 38), function()
+	confirmOverlay.Visible = false
+	send("Franchise")
+end, C.Ink)
+acceptFranchise.ZIndex = 52
+acceptFranchise.Name = "ConfirmFranchise"
+confirmFranchise = function()
+	if not snapshot or not snapshot.Ready then return end
+	local allowed, reason = Economy.canFranchise(snapshot.Profile)
+	if not allowed then notify(reason or "Your café is not ready to franchise yet.") return end
+	confirmOverlay.Visible = true
+end
+
+local loading = make("Frame", { Size = UDim2.fromScale(1, 1), BackgroundColor3 = C.Cream, BorderSizePixel = 0, ZIndex = 60 }, root)
+loading.Name = "Loading"
+local loadingBrand = label(loading, "ESPRESSO", 34, UDim2.new(0, 24, 0.5, -100), UDim2.new(1, -48, 0, 46), C.Ink, true)
+loadingBrand.TextXAlignment = Enum.TextXAlignment.Center
+loadingBrand.ZIndex = 61
+local loadingTitle = label(loading, "Warming up your coffee house…", 14, UDim2.new(0, 24, 0.5, -30), UDim2.new(1, -48, 0, 34), C.Sage, true)
+loadingTitle.TextXAlignment = Enum.TextXAlignment.Center
+loadingTitle.ZIndex = 61
+local loadingDetail = label(loading, "Loading your saved café safely.", 11, UDim2.new(0, 32, 0.5, 22), UDim2.new(1, -64, 0, 90), C.Muted)
+loadingDetail.TextXAlignment = Enum.TextXAlignment.Center
+loadingDetail.TextYAlignment = Enum.TextYAlignment.Top
+loadingDetail.TextWrapped = true
+loadingDetail.TextTruncate = Enum.TextTruncate.None
+loadingDetail.ZIndex = 61
+
+local function updateNeighbors()
+	local others = Players:GetPlayers()
+	local function servedBy(other)
+		local stats = other:FindFirstChild("leaderstats")
+		if not stats then return 0 end
+		local served = stats:FindFirstChild("Customers") or stats:FindFirstChild("Served")
+		return served and served.Value or 0
+	end
+	table.sort(others, function(a, b)
+		return servedBy(a) > servedBy(b)
+	end)
+	for index, view in ipairs(neighborRows) do
+		local other = others[index]
+		view.Root.Visible = other ~= nil
+		if other then
+			text(view.Name, other.DisplayName .. (other == player and "  · YOU" or ""))
+			text(view.Detail, "@" .. other.Name)
+			text(view.Served, count(servedBy(other)))
+		end
+	end
+end
+
+local function updateGoal(view, amount, claimed)
+	local target = view.Config.Target
+	amount = math.max(0, amount or 0)
+	text(view.Progress, count(math.min(amount, target)) .. " / " .. count(target))
+	view.Fill.Size = UDim2.fromScale(math.clamp(amount / math.max(1, target), 0, 1), 1)
+	enableButton(view.Claim, not claimed and amount >= target, claimed and "CLAIMED" or (amount >= target and "CLAIM REWARD" or "IN PROGRESS"))
+end
+
+local function updateState(value)
+	if type(value) ~= "table" then return end
+	if snapshot and type(snapshot.ServerTime) == "number" and type(value.ServerTime) == "number" and value.ServerTime < snapshot.ServerTime then
+		return
+	end
+	snapshot = value
+	if not value.Ready or type(value.Profile) ~= "table" then
+		loading.Visible = true
+		text(loadingTitle, value.Error and "Reconnecting to your coffee house…" or "Warming up your coffee house…")
+		text(loadingDetail, value.Error or "Loading your saved café safely.")
+		return
+	end
+	loading.Visible = false
+	local profile = value.Profile
+	text(bank, money(profile.Cash))
+	text(statsLine, count(profile.LifetimeServed) .. " served  ·  " .. tostring(profile.Franchises or 0) .. " franchises")
+	local status = value.SaveStatus or "Connected"
+	text(saveStatus, "CAFÉ " .. tostring(value.PlotIndex or "—") .. "  ·  " .. status)
+	saveStatus.TextColor3 = (string.find(string.lower(status), "fail") or string.find(string.lower(status), "lost")) and C.Red or C.Muted
+	if not sessionOnlyShown and string.find(string.lower(status), "session only") then
+		sessionOnlyShown = true
+		notify("Studio preview mode: progress in this session will not be saved.", 8)
+	end
+	if lastCash and profile.Cash > lastCash then
+		bank.TextColor3 = C.Gold
+		TweenService:Create(bank, TweenInfo.new(0.45), { TextColor3 = C.Sage }):Play()
+	end
+	lastCash = profile.Cash
+	if value.Message and value.Message ~= "" and value.Message ~= previousMessage then
+		previousMessage = value.Message
+		notify(value.Message)
+	end
+	if not offlineShown and (value.OfflineReward or 0) > 0 then
+		offlineShown = true
+		notify("Welcome back! Your staff earned " .. money(value.OfflineReward) .. " while you were away.", 7)
+	end
+
+	for id, view in pairs(upgradeRows) do
+		local level = profile.Upgrades[id] or 0
+		local cost = Economy.upgradeCost(profile, id)
+		text(view.Level, tostring(level) .. " / " .. tostring(view.Config.MaxLevel))
+		local canAfford = cost ~= nil and profile.Cash >= cost
+		enableButton(view.Buy, canAfford, cost and ("BUY · " .. money(cost)) or "MAX LEVEL")
+		text(view.Benefit, cost == nil and "Fully upgraded" or (canAfford and "Ready to upgrade" or (money(cost - profile.Cash) .. " to go")))
+	end
+	for id, view in pairs(recipeRows) do
+		local unlocked = Economy.recipe(profile, id) ~= nil
+		local selected = value.SelectedRecipe == id
+		local price = Economy.saleValue(profile, view.Config, false, false, false)
+		text(view.Info, money(price) .. " base sale  ·  " .. string.format("%.1fs", Economy.brewDuration(profile, view.Config)) .. " brew")
+		text(view.Status, unlocked and (selected and "On your menu now" or "Ready for your counter") or ("Requires menu level " .. tostring(view.Config.MenuLevel)))
+		enableButton(view.Choose, unlocked and not selected and not value.Brew, selected and "SELECTED" or (unlocked and (value.Brew and "FINISH SHOT" or "SELECT") or "LOCKED"))
+	end
+	for id, view in pairs(questRows) do
+		local daily = profile.Daily or {}
+		updateGoal(view, daily[view.Config.Metric] or 0, (daily.Claimed or {})[id])
+	end
+	for id, view in pairs(achievementRows) do
+		updateGoal(view, profile[view.Config.Metric] or 0, (profile.Achievements or {})[id])
+	end
+	for id, view in pairs(themeRows) do
+		local required = view.Config.RequiredFranchises or 0
+		local unlocked = (profile.Franchises or 0) >= required
+		local selected = profile.Theme == id
+		text(view.Requirement, unlocked and (selected and "Your café palette" or "Unlocked · free to apply") or (tostring(required) .. " franchises to unlock"))
+		enableButton(view.Choose, unlocked and not selected, selected and "APPLIED" or (unlocked and "APPLY" or "LOCKED"))
+	end
+	local allowed, reason = Economy.canFranchise(profile)
+	text(franchiseHeading, "FRANCHISE " .. string.format("%02d", (profile.Franchises or 0) + 1))
+	text(franchiseDescription, allowed and "Your next chapter is ready. Cash and upgrades reset; your permanent franchise bonus and lifetime progress remain." or (reason or "Keep growing your café to unlock a new franchise."))
+	enableButton(franchiseButton, allowed, allowed and "OPEN FRANCHISE" or "KEEP GROWING", C.Ink)
+	if confirmOverlay.Visible and not allowed then confirmOverlay.Visible = false end
+
+	local served = profile.ManualServed or 0
+	local bought = profile.TotalUpgrades or 0
+	local claimedGoal = next((profile.Daily or {}).Claimed or {}) ~= nil
+	if served == 0 then
+		text(tutorialTitle, "1 / 3 · Pull your first shot")
+		text(tutorialDescription, "Press BREW below. When the meter turns green, serve a perfect espresso.")
+	elseif bought == 0 then
+		text(tutorialTitle, "2 / 3 · Make it a little better")
+		text(tutorialDescription, "Open MANAGE CAFÉ and buy your first upgrade. Better equipment means a better coffee house.")
+	elseif not claimedGoal then
+		text(tutorialTitle, "3 / 3 · Your next small goal")
+		text(tutorialDescription, "Keep serving, then claim a daily goal in MANAGE CAFÉ → GOALS.")
+	else
+		text(tutorialTitle, "Your café. Your pace.")
+		text(tutorialDescription, "Try a new drink, hire staff, or visit your neighbors around the plaza.")
+	end
+	updateNeighbors()
+end
+
+local function updateExtraction()
+	if not snapshot or not snapshot.Ready then
+		enableButton(brewButton, false, "PREPARING CAFÉ")
+		return
+	end
+	local now = workspace:GetServerTimeNow()
+	local order = snapshot.Order or {}
+	local recipe = recipeById(order.RecipeId or snapshot.SelectedRecipe)
+	local vip = order.Vip == true
+	text(orderName, recipe.Name)
+	text(orderEyebrow, vip and "A VIP AT YOUR COUNTER" or "AT YOUR COUNTER")
+	orderEyebrow.TextColor3 = vip and C.Gold or C.Muted
+	local rush = snapshot.Rush
+	local rushActive = rush and rush.Active and now < rush.EndsAt
+	local price = Economy.saleValue(snapshot.Profile, recipe, false, vip, rushActive == true)
+	text(orderValue, money(price))
+	local brew = snapshot.Brew
+	if not brew then
+		meterFill.Size = UDim2.fromScale(0, 1)
+		meterFill.BackgroundColor3 = C.Sage
+		text(orderHint, "Your customer is ready. Pull a fresh shot.")
+		text(meterCaption, "Serve in the green window for a perfect-shot bonus")
+		enableButton(brewButton, true, "BREW " .. string.upper(recipe.Name))
+	elseif now < brew.ReadyAt then
+		local progress = math.clamp((now - brew.StartedAt) / math.max(0.1, brew.ReadyAt - brew.StartedAt), 0, 1)
+		meterFill.Size = UDim2.fromScale(progress, 1)
+		meterFill.BackgroundColor3 = C.Gold
+		text(orderHint, "Extracting… get ready to serve.")
+		text(meterCaption, string.format("%.1fs to the perfect window", math.max(0, brew.ReadyAt - now)))
+		enableButton(brewButton, false, "BREWING…")
+	elseif now <= brew.PerfectUntil then
+		meterFill.Size = UDim2.fromScale(1, 1)
+		meterFill.BackgroundColor3 = C.Sage
+		text(orderHint, "Balanced, rich, and ready. Serve it now!")
+		text(meterCaption, "PERFECT WINDOW · " .. string.format("%.1fs", math.max(0, brew.PerfectUntil - now)))
+		enableButton(brewButton, true, "SERVE · PERFECT SHOT", C.Sage)
+	elseif now <= brew.ExpiresAt then
+		meterFill.Size = UDim2.fromScale(math.clamp((brew.ExpiresAt - now) / math.max(0.1, brew.ExpiresAt - brew.PerfectUntil), 0, 1), 1)
+		meterFill.BackgroundColor3 = C.Gold
+		text(orderHint, "Still warm. Your customer is waiting.")
+		text(meterCaption, string.format("Serve within %.1fs", math.max(0, brew.ExpiresAt - now)))
+		enableButton(brewButton, true, "SERVE COFFEE", C.Gold)
+	else
+		meterFill.Size = UDim2.fromScale(0, 1)
+		text(orderHint, "This shot cooled down. A fresh one will be better.")
+		text(meterCaption, "No cash lost. Brew again when you are ready.")
+		enableButton(brewButton, true, "BREW A FRESH SHOT")
+	end
+	if rushActive then
+		text(rushLabel, "COFFEE RUSH · " .. duration(rush.EndsAt - now))
+		rushPill.BackgroundColor3 = C.GoldLight
+	elseif rush and rush.NextAt then
+		text(rushLabel, "Next rush · " .. duration(rush.NextAt - now))
+		rushPill.BackgroundColor3 = C.Cream
+	end
+	text(resetLabel, "Daily reset in " .. duration(86400 - (os.time() % 86400)) .. " · UTC")
+end
+
+local function responsive()
+	local size = root.AbsoluteSize
+	local compact = size.X < 650
+	local veryShort = size.Y < 450
+	header.Size = UDim2.new(1, -32, 0, compact and 116 or 78)
+	brand.TextSize = compact and 21 or 24
+	brand.Size = UDim2.fromOffset(compact and 150 or 190, 28)
+	brandSub.Visible = not compact
+	saveStatus.Position = UDim2.fromOffset(19, compact and 43 or 55)
+	saveStatus.Size = UDim2.new(1, compact and -38 or -40, 0, 14)
+	bank.Position = UDim2.new(1, compact and -150 or -336, 0, 10)
+	bank.Size = UDim2.fromOffset(compact and 132 or 168, 30)
+	bank.TextSize = compact and 22 or 25
+	statsLine.Position = compact and UDim2.fromOffset(19, 78) or UDim2.new(1, -336, 0, 43)
+	statsLine.Size = UDim2.fromOffset(compact and math.max(80, size.X - 215) or 168, 20)
+	statsLine.TextXAlignment = compact and Enum.TextXAlignment.Left or Enum.TextXAlignment.Right
+	manageButton.Position = UDim2.new(1, -150, 0, compact and 67 or 18)
+	manageButton.Size = UDim2.fromOffset(132, compact and 34 or 42)
+	tutorial.Visible = not veryShort and size.Y >= (compact and 640 or 520)
+	tutorial.Position = UDim2.fromOffset(16, compact and 140 or 104)
+	tutorial.Size = compact and UDim2.new(1, -32, 0, 92) or UDim2.fromOffset(254, 116)
+	tutorialTitle.TextSize = compact and 13 or 15
+	tutorialDescription.Position = UDim2.fromOffset(15, compact and 53 or 56)
+	tutorialDescription.Size = UDim2.new(1, -30, 0, compact and 32 or 45)
+	tutorialDescription.TextSize = compact and 10 or 11
+	rushPill.Visible = not veryShort
+	rushPill.Position = UDim2.new(1, -16, 0, compact and (tutorial.Visible and 242 or 140) or 104)
+	rushPill.Size = UDim2.fromOffset(compact and 185 or 210, 34)
+	rushLabel.TextSize = compact and 10 or 11
+	toast.Position = UDim2.new(0.5, 0, 0, compact and 140 or 102)
+	orderCard.Position = UDim2.new(0.5, 0, 1, -16)
+	orderCard.Visible = not (veryShort and manageOpen)
+	orderName.TextSize = size.X < 380 and 23 or 28
+	panelTitle.TextSize = size.X < 450 and 17 or 23
+	panel.Size = UDim2.new(1, -32, 1, -28)
+	confirmTitle.TextSize = size.X < 380 and 17 or 20
+end
+
+root:GetPropertyChangedSignal("AbsoluteSize"):Connect(responsive)
+responsive()
+RunService.RenderStepped:Connect(updateExtraction)
+UserInputService.InputBegan:Connect(function(input, processed)
+	if processed then return end
+	if input.KeyCode == Enum.KeyCode.ButtonB then
+		if confirmOverlay.Visible then confirmOverlay.Visible = false elseif manageOpen then closeManage() end
+	elseif input.KeyCode == Enum.KeyCode.ButtonY and not loading.Visible then
+		if manageOpen then closeManage() else openManage("Upgrades") end
+	end
+end)
+
+-- Audio is sourced in AssetCatalog. Loading/permission failures never block play.
+task.spawn(function()
+	local catalogRef = shared:WaitForChild("AssetCatalog", 30)
+	if not catalogRef then
+		text(musicStatus, "No café soundtrack is available.")
+		return
+	end
+	local ok, catalog = pcall(require, catalogRef)
+	if not ok or type(catalog) ~= "table" then
+		text(musicStatus, "No café soundtrack is available.")
+		return
+	end
+	local folder = make("Folder", { Name = "EspressoCafeLocalAudio" }, SoundService)
+	local function audioSound(name, settings, defaultVolume, looped)
+		if type(settings) ~= "table" or not settings.Id then return nil end
+		return make("Sound", {
+			Name = name, SoundId = "rbxassetid://" .. tostring(settings.Id),
+			Volume = math.clamp(settings.Volume or defaultVolume, 0, 0.35), Looped = looped == true,
+		}, folder)
+	end
+	local sounds = catalog.Sounds or {}
+	local clickSound = audioSound("UIClick", sounds.UiClick, 0.12, false)
+	local function oneShot(sound)
+		if not sound or not sound.IsLoaded then return end
+		pcall(function()
+			sound.TimePosition = 0
+			sound:Play()
+		end)
+	end
+	playUiClick = function() oneShot(clickSound) end
+	local effectsToLoad = {}
+	if clickSound then table.insert(effectsToLoad, clickSound) end
+	if #effectsToLoad > 0 then
+		task.spawn(function()
+			pcall(function() ContentProvider:PreloadAsync(effectsToLoad) end)
+		end)
+	end
+	local music = catalog.Music or {}
+	local tracks = music.Tracks or {}
+	local track = tracks[1]
+	if not track then
+		text(musicStatus, "No café soundtrack is available.")
+		return
+	end
+	local background = audioSound("CafeMusic", { Id = track.Id, Volume = music.Volume or 0.16 }, 0.16, true)
+	if not background then return end
+	local playing = false
+	local loadAttempt = 0
+	local failed = false
+	text(musicName, track.Name or "Café soundtrack")
+	text(musicStatus, "Off · choose PLAY MUSIC when you feel like it.")
+	enableButton(musicButton, true, "PLAY MUSIC", C.Ink)
+	background.Loaded:Connect(function()
+		if playing then text(musicStatus, "Now playing · " .. (track.Name or "Café soundtrack")) end
+	end)
+	toggleMusic = function()
+		if failed then return end
+		playing = not playing
+		loadAttempt += 1
+		local thisAttempt = loadAttempt
+		if not playing then
+			background:Stop()
+			text(musicStatus, "Off · enjoy the sounds of your coffee house.")
+			enableButton(musicButton, true, "PLAY MUSIC", C.Ink)
+			return
+		end
+		local played = pcall(function() background:Play() end)
+		text(musicStatus, background.IsLoaded and ("Now playing · " .. (track.Name or "Café soundtrack")) or "Loading your café soundtrack…")
+		enableButton(musicButton, true, "MUTE MUSIC", C.Sage)
+		task.delay(15, function()
+			if thisAttempt ~= loadAttempt or not playing then return end
+			if not played or not background.IsLoaded then
+				failed = true
+				playing = false
+				background:Stop()
+				text(musicStatus, "This soundtrack is unavailable. Your café can keep going.")
+				enableButton(musicButton, false, "UNAVAILABLE", C.Ink)
+			end
+		end)
+	end
+	if music.EnabledByDefault == true then toggleMusic() end
+end)
+
+-- Subscribe first, then request a snapshot. Slow loads retry without duplicate calls.
+task.spawn(function()
+	local remotes = ReplicatedStorage:WaitForChild("Remotes", 40)
+	if not remotes then
+		text(loadingTitle, "The café server is still starting.")
+		text(loadingDetail, "Please rejoin if this screen stays here. Your saved café has not been changed.")
+		return
+	end
+	actionRemote = remotes:WaitForChild("Action", 20)
+	local stateRemote = remotes:WaitForChild("State", 20)
+	local getter = remotes:WaitForChild("GetState", 20)
+	if not actionRemote or not stateRemote or not getter then
+		text(loadingTitle, "The café connection is unavailable.")
+		text(loadingDetail, "Please rejoin to reconnect to the server.")
+		return
+	end
+	stateRemote.OnClientEvent:Connect(updateState)
+	while screen.Parent do
+		if not snapshot or not snapshot.Ready then
+			local ok, result = pcall(function() return getter:InvokeServer() end)
+			if ok and result then
+				updateState(result)
+			elseif not snapshot then
+				text(loadingDetail, "Waiting for the café server. Reconnecting automatically…")
+			end
+		end
+		task.wait(3)
+	end
+end)
+]]></string>
+          </Properties>
+        </Item>
+      </Item>
+    </Item>
+  </Item>
+  <Item class="Workspace" referent="19">
+    <Properties>
+      <string name="Name">Workspace</string>
+      <float name="Gravity">196.2</float>
+      <bool name="NeedsPivotMigration">false</bool>
+      <bool name="StreamingEnabled">false</bool>
+    </Properties>
+    <Item class="SpawnLocation" referent="20">
+      <Properties>
+        <string name="Name">SpawnLocation</string>
+        <bool name="Anchored">true</bool>
+        <int name="Duration">0</int>
+        <bool name="Neutral">true</bool>
+        <Vector3 name="Position">
+          <X>0</X>
+          <Y>2</Y>
+          <Z>0</Z>
+        </Vector3>
+        <Vector3 name="size">
+          <X>8</X>
+          <Y>1</Y>
+          <Z>8</Z>
+        </Vector3>
+        <float name="Transparency">1</float>
+      </Properties>
+    </Item>
+  </Item>
+</roblox>
