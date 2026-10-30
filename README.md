@@ -7,12 +7,12 @@ A Roblox café-management tycoon: pull espresso shots, serve customers, improve 
 ## Pull and play on Windows / macOS
 
 ```sh
-git clone YOUR_REPOSITORY_URL
-cd espresso-cafe-tycoon
+git clone https://github.com/falconrapid19925/esp-ty.git
+cd esp-ty
 git pull
 ```
 
-Replace `YOUR_REPOSITORY_URL` with the project's GitHub URL once pushed. If using the downloadable ZIP, extract it instead of cloning. Open **`build/EspressoCafeTycoon.rbxlx`** in Roblox Studio and press **Play**. The café plaza and interface are generated when the server starts. No Rojo installation is needed just to open this committed build.
+If using the downloadable ZIP, extract it instead of cloning. Open **`build/EspressoCafeTycoon.rbxlx`** in Roblox Studio and press **Play**. The café plaza and interface are generated when the server starts. No Rojo installation is needed just to open this committed build.
 
 **Free assets:** the exported place preconfigures **Allow Loading Third Party Assets** (`AssetService.AllowInsertFreeAssets = true`) for the reviewed free Creator Store models. Verify that setting remains enabled when opening/publishing in Studio. Geometry is sanitized before use. If access fails, limited fallback geometry keeps the game playable; see [asset research and import instructions](docs/ASSET_RESEARCH.md) and inspect the result in Studio. Bundled Kenney CC0 source models are an alternative for Studio's 3D Importer. Music is opt-in, and audio playback remains to be checked in the target experience.
 
